@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
+import Link from "next/link";
 
 function page() {
   const { register, handleSubmit } = useForm();
@@ -20,7 +21,7 @@ function page() {
         </div>
       </div> */}
       <div className="w-full h-full flex flex-col justify-center md:items-start md:px-24 px-9  container  ">
-        <div className="flex flex-col justify-center gap-24 h-full bg-white">
+        <div className="flex flex-col justify-center gap-24 h-full font-lexend">
           <div className="flex md:w-max flex-col md:items-start justify-center text-center items-center ">
             <div className="md:w-full">
               <Image
@@ -41,7 +42,7 @@ function page() {
                 Email Address{" "}
                 <input
                   type="email"
-                  className="bg-bg-input rounded-full text-dark-0 dark:text-light-0 w-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
+                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
                   {...register("email")}
                 />
               </label>
@@ -60,9 +61,11 @@ function page() {
               </button>
             </form>
           </div>
-          <div className="flex gap-2 text-xs">
+          <div className="flex gap-1 text-xs">
             <div className="">Not yet registered?</div>
-            <div className="text-primary font-bold">SIGN UP NOW!</div>
+            <Link href={"/signup"} className="text-primary font-bold underline">
+              SIGN UP NOW!
+            </Link>
           </div>
         </div>
       </div>

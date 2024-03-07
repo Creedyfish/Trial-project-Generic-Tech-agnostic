@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
+import Link from "next/link";
 
 function page() {
   const { register, handleSubmit } = useForm();
@@ -22,7 +23,7 @@ function page() {
       <div className="w-full h-full flex flex-col justify-center md:items-start md:px-24 px-9  container  ">
         <div className="flex flex-col justify-center gap-24 h-full ">
           <div className="flex items-center gap-1 ">
-            <div className="text-2xl flex items-center text-primary">
+            <div className="text-2xl flex items-center font-payton text-primary">
               Sign up to
             </div>
             <div className="">
@@ -35,13 +36,13 @@ function page() {
               />
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full font-lexend">
             <form className="flex flex-col gap-5">
               <label className="text-primary text-sm flex flex-col gap-1">
                 Name{" "}
                 <input
                   type="text"
-                  className="bg-bg-input rounded-full text-dark-0 dark:text-light-0 w-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
+                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
                   {...register("name")}
                 />
               </label>
@@ -66,24 +67,24 @@ function page() {
                 Repeat Password
                 <input
                   type="password"
-                  className="bg-bg-input text-primary dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-primary"
+                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
                   {...register("repeatPassword")}
                 />
               </label>
 
-              <label className="text-dark-0 flex text-sm gap-2">
+              <label className=" flex text-sm gap-2 text-primary dark:text-light-0">
                 <input
                   type="checkbox"
-                  className=" accent-primary"
+                  className=" accent-primary text-primary dark:text-light-0"
                   {...register("agreeToTerms")}
                 />
                 I agree to the Terms and Conditions
               </label>
 
-              <label className="text-dark-0 flex text-sm gap-2">
+              <label className=" flex text-sm gap-2 text-primary dark:text-light-0">
                 <input
                   type="checkbox"
-                  className=" accent-primary"
+                  className=" accent-primary text-primary dark:text-light-0"
                   {...register("agreeToPrivacyPolicy")}
                 />
                 I agree to the Privacy Policy
@@ -92,9 +93,14 @@ function page() {
               <button className="w-full bg-primary rounded-full font-normal text-light-0 p-2">
                 Sign Up
               </button>
-              <div className="flex gap-2 text-xs justify-center">
+              <div className="flex gap-1 text-xs justify-center">
                 <div className="">Already have an account?</div>
-                <div className="text-primary font-bold">Log In instead</div>
+                <Link
+                  href={"/login"}
+                  className="text-primary font-bold underline"
+                >
+                  Log In instead
+                </Link>
               </div>
             </form>
           </div>
