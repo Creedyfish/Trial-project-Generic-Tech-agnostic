@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <nav className="w-full flex items-center justify-between bg-primary py-4 px-5">
+    <nav className="w-full sticky top-0 z-50 flex items-center justify-between bg-primary py-4 px-5">
       <Link href={"/"} className="">
         <Image
           src={"/header-cooky-logo.png"}
