@@ -6,3 +6,19 @@ html, body{
   width: 100%;
   height: 100%;
 }
+
+input[type="checkbox"] {
+  border-style: solid; /* Solid outline style */
+  border-color: red;  /* Red color for the outline */
+  border-width: 2px;
+}
+
+
+.ingredients ul,li {
+  list-style-type: disc;
+  
+}
+
+.ingredients span {
+  font-size: 24px;
+}
