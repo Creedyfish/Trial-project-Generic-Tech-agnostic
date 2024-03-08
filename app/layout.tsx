@@ -3,8 +3,19 @@ import { Inter, Paytone_One, Lexend } from "next/font/google";
 import ThemeProvider from "./providers";
 import "./globals.css";
 import Header from "./components/Header";
+import { redirect } from "next/navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const payton = Paytone_One({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-payton",
+});
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lexend",
+});
 
 export const metadata: Metadata = {
   title: "Cooky",
@@ -18,9 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark:bg-dark-0 `}>
-        <Header />
+      <body
+        className={`${lexend.variable} ${payton.variable}  dark:bg-dark-0 `}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
           {children}
         </ThemeProvider>
       </body>
