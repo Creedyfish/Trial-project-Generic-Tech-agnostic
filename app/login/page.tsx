@@ -20,19 +20,19 @@ function page() {
           />
         </div>
       </div> */}
-      <div className="w-full h-full flex flex-col justify-center md:items-start md:px-24 px-9  container  ">
+      <div className="w-full h-full flex flex-col justify-center md:items-start md:px-24 px-9 container transition-all duration-300 ease-in-out">
         <div className="flex flex-col justify-center gap-24 h-full font-lexend">
-          <div className="flex md:w-max flex-col md:items-start justify-center text-center items-center ">
-            <div className="md:w-full">
+          <div className="flex md:w-max flex-col md:items-start justify-center text-center items-center">
+            <div className="md:w-full ">
               <Image
                 src={"/cooky-logo.png"}
                 width={180.55}
                 height={56.18}
                 alt="mobile-logo"
-                className="md:w-full"
+                className="md:w-full transition-all duration-300 ease-in-out"
               />
             </div>
-            <div className="w-full md:text-base text-xs">
+            <div className="w-full md:text-base text-sm transition-all duration-300 ease-in-out">
               Recipes from all over the world
             </div>
           </div>
