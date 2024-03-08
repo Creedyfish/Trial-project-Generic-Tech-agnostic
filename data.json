@@ -1,0 +1,38 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "user1",
+            "password": "password1",
+            "email": "user1@example.com"
+        },
+        {
+            "id": 2,
+            "username": "user2",
+            "password": "password2",
+            "email": "user2@example.com"
+        }
+    ],
+    "recipes": [
+        {
+            "id": 1,
+            "name": "Steamed Salmon",
+            "servings": 4,
+            "prep_time": 30,
+            "main_image": "4da4f71a0e8c4fc5148169f89ad3252b.png",
+            "ingredients": "<p>\n<span>Main Ingredients</span>\n</p>\n<ul>\n<li>450g salmon</li>\n<li>30g ginger</li>\n<li>60g scallion</li>\n</ul>\n<p>\n<br>\n</p>\n<p>\n<span style=\"font-size: large;\">Sauce Ingredients</span>\n</p>\n<p>\n<br>\n</p>\n<ul>\n<li>1 tbsp light soy sauce</li>\n<li>1 tsp dark soy sauce</li>\n<li>1 tbsp oyster sauce</li>\n<li>1 tbsp cooking wine</li>\n<li>1/4 tsp white pepper</li>\n<li>1/2 tsp sugar</li>\n</ul>\n<p>\n<br>\n</p>\n<p>\n<span style=\"font-size: large;\">Garnish Ingredients</span>\n</p>\n<ul>\n<li>85g oil</li>\n<li>30g cilantro</li>\n</ul>",
+            "procedure": "<p>Step 1 - Prep Salmon</p>\n<ul>\n<li>To prep the salmon (454 g), first descale the skin. You can also steam it with the scales and skin on.</li>\n<li>Once the scales are off, remove the fish from the bag and rinse it in clean water to remove any debris. Pat it dry with paper towels.</li>\n<li>Cut the salmon into four equal pieces. Tear a stalk of scallion into smaller pieces and scatter them on the steaming plate. Place the salmon fillets on top of the scallions. This will add more aroma to the fish.</li>\n</ul>",
+            "user_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Penang Ais Kacang",
+            "servings": 2,
+            "prep_time": 15,
+            "main_image": "6a27dccade3bf6c947b5953056f833f0.png",
+            "ingredients": "<p>asdasdasd</p><p><br></p><ul><li>1</li><li>2</li><li>3</li><li>4</li></ul>",
+            "procedure": "Procedure for Recipe 2",
+            "user_id": 2
+        }
+    ]
+}
