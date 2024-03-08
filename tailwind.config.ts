@@ -25,6 +25,7 @@ const config: Config = {
         'light-0':"#FFFFFF",
         'gray-cooky':"#929292",
         'red-delete':"#FF1100",
+        'red-error':"#FF9393",
         'bg-input':'#EFEFEF',
         'dark-1':'#282828',
         'dark-0':"#1E1E1E"
