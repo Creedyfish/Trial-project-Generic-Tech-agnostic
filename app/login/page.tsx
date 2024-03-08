@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
 
-function page() {
+function Page() {
   const { register, handleSubmit } = useForm();
 
   return (
@@ -86,4 +86,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
