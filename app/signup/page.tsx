@@ -84,7 +84,7 @@ function page() {
               <label className=" flex text-sm gap-2 text-primary dark:text-light-0">
                 <input
                   type="checkbox"
-                  className=" accent-primary text-primary dark:text-light-0"
+                  className=" accent-primary text-primary dark:text-light-0 border border-red-500"
                   {...register("agreeToPrivacyPolicy")}
                 />
                 I agree to the Privacy Policy
