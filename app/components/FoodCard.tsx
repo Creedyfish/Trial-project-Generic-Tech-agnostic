@@ -16,14 +16,14 @@ function FoodCard({ name, image }: Props) {
       /> */
   }
   return (
-    <div className="flex w-[325px] flex-col justify-center items-center gap-2">
+    <div className="flex w-[20.3125rem] flex-col justify-center items-center gap-2">
       <Image
         src={`/${image}`}
         width={325}
         height={150}
         alt={`${name}.image`}
         loading="lazy"
-        className="w-[325px] h-[150px] object-cover rounded-md"
+        className="w-[20.3125rem] h-[9.5rem] object-cover rounded-md"
       />
       <div className="font-lexend w-full font-semibold text-sm md:text-xl items-start border-l-4 border-secondary">
         <div className="px-2">{name}</div>
