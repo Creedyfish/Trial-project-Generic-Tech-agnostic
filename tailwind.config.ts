@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'payton': ['var(--font-payton)'],
+        'lexend': ['var(--font-lexend)'],
+      },
       width: {
         'max-content': 'max-content',
       },
@@ -19,6 +23,8 @@ const config: Config = {
         'primary':'#CB4036',
         'secondary':'#FFC327',
         'light-0':"#FFFFFF",
+        'gray-cooky':"#929292",
+        'red-delete':"#FF1100",
         'bg-input':'#EFEFEF',
         'dark-1':'#282828',
         'dark-0':"#1E1E1E"
