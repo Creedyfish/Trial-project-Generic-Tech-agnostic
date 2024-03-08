@@ -1,13 +1,31 @@
 "use client";
-
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
-
+import { Login } from "@/queries/apiQueries";
+import { useRouter } from "next/navigation";
+type Inputs = {
+  email: string;
+  password: string;
+};
 function Page() {
-  const { register, handleSubmit } = useForm();
+  const router = useRouter();
+  const { register, control, handleSubmit } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const response = await Login(data);
 
+      console.log({ data: data, response });
+      router.push("/");
+
+      // Handle successful login
+    } catch (error) {
+      console.error(error);
+
+      // Handle failed login
+    }
+  };
   return (
     <div className="w-full h-full flex justify-center relative">
       {/* <div className="w-full h-full flex justify-end items-end absolute -z-10 pointer-events-none ">
@@ -51,7 +69,10 @@ function Page() {
             </div>
           </div>
           <div className="w-full flex flex-col gap-24 md:gap-10 transition-all duration-300 ease-in-out">
-            <form className="flex flex-col gap-6">
+            <form
+              className="flex flex-col gap-6"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <label className=" text-sm flex flex-col gap-1">
                 <div className="text-primary"> Email Address </div>
                 <input
@@ -62,7 +83,7 @@ function Page() {
               </label>
 
               <label className=" text-sm flex flex-col gap-1">
-                <div className="text-primary"> Email Address </div>
+                <div className="text-primary"> Password </div>
                 <input
                   type="password"
                   className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
@@ -70,10 +91,14 @@ function Page() {
                 />
               </label>
 
-              <button className="w-full bg-primary rounded-full font-normal text-light-0 p-2">
+              <button
+                type="submit"
+                className="w-full bg-primary rounded-full font-normal text-light-0 p-2"
+              >
                 Log In
               </button>
             </form>
+
             <div className="flex gap-1 text-xs md:text-base justify-center transition-all duration-300 ease-in-out">
               <div className="">Not yet registered?</div>
               <Link
