@@ -20,23 +20,37 @@ function Page() {
           />
         </div>
       </div> */}
-      <div className="w-full h-full flex flex-col justify-center md:items-start md:px-24 px-9  container  ">
-        <div className="flex flex-col justify-center gap-24 h-full ">
-          <div className="flex items-center gap-1 ">
-            <div className="text-2xl flex items-center font-payton text-primary">
+
+      <div className="absolute -z-10 h-full w-full">
+        <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-40% to-transparent transition-all duration-300 ease-in-out"></div>
+        <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
+          <div className="md:w-2/3 lg:w-2/5 h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out"></div>
+          <Image
+            src="/signup-image.png"
+            width={2000}
+            height={2000}
+            alt="bg-signup-image"
+            className="object-cover md:w-1/3 lg:w-3/5 h-full hidden md:flex transition-all duration-300 ease-in-out"
+          />
+        </div>
+      </div>
+      <div className="w-full h-full flex flex-col items-center justify-center md:items-start md:px-24 px-9  container  transition-all duration-300 ease-in-out">
+        <div className="flex flex-col justify-center md:items-start items-center gap-24 h-full max-w-[375px] md:max-w-none">
+          <div className="flex items-center gap-2 justify-center">
+            <div className="text-2xl md:text-6xl flex items-center  font-payton text-primary transition-all duration-300 ease-in-out">
               Sign up to
             </div>
-            <div className="">
+            <div className="translate-y-1 md:translate-y-3 transition-all duration-300 ease-in-out">
               <Image
                 src={"/cooky-logo.png"}
                 width={180.55}
                 height={56.18}
                 alt="mobile-logo"
-                className=""
+                className="w-[4.5rem] md:w-[12.75rem] transition-all duration-300 ease-in-out"
               />
             </div>
           </div>
-          <div className="w-full font-lexend">
+          <div className="items-start flex justify-start font-lexend">
             <form className="flex flex-col gap-5">
               <label className="text-primary text-sm flex flex-col gap-1">
                 Name{" "}
