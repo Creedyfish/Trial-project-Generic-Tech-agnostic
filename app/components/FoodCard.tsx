@@ -22,6 +22,7 @@ function FoodCard({ name, image }: Props) {
         width={325}
         height={150}
         alt={`${name}.image`}
+        loading="lazy"
         className="w-[325px] h-[150px] object-cover rounded-md"
       />
       <div className="font-lexend w-full font-semibold text-sm md:text-xl items-start border-l-4 border-secondary">
