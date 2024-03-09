@@ -1,12 +1,19 @@
+"use client";
 import React from "react";
 import Modal from "./Modal";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
   open: boolean;
   setIsOpen: (value: boolean) => void;
 }
 
-function SaveSuccessModal({ open, setIsOpen }: ModalProps) {
+interface NamedModalProps extends ModalProps {
+  name: string;
+}
+
+function SaveSuccessModal({ open, setIsOpen, name }: NamedModalProps) {
+  const router = useRouter();
   return (
     <Modal
       open={open}
@@ -14,7 +21,9 @@ function SaveSuccessModal({ open, setIsOpen }: ModalProps) {
       buttons={
         <>
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false), router.push("/");
+            }}
             className="rounded-full w-full px-[3.125rem] py-3 bg-primary text-light-0"
           >
             Yes
@@ -22,12 +31,13 @@ function SaveSuccessModal({ open, setIsOpen }: ModalProps) {
         </>
       }
     >
-      <p>The details of Steamed Salmon Recipe has been saved.</p>
+      <p>The details of {name} has been saved.</p>
     </Modal>
   );
 }
 
 function CancelModal({ open, setIsOpen }: ModalProps) {
+  const router = useRouter();
   return (
     <Modal
       open={open}
@@ -35,12 +45,19 @@ function CancelModal({ open, setIsOpen }: ModalProps) {
       buttons={
         <>
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+            }}
             className="rounded-full px-[3.125rem] py-3 bg-light-0 text-dark-0"
           >
             No
           </button>
-          <button className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0">
+          <button
+            onClick={() => {
+              setIsOpen(false), router.push("/");
+            }}
+            className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0"
+          >
             Yes
           </button>
         </>
@@ -54,7 +71,7 @@ function CancelModal({ open, setIsOpen }: ModalProps) {
   );
 }
 
-function DeleteModal({ open, setIsOpen }: ModalProps) {
+function DeleteModal({ open, setIsOpen, name }: NamedModalProps) {
   return (
     <Modal
       open={open}
@@ -75,7 +92,7 @@ function DeleteModal({ open, setIsOpen }: ModalProps) {
     >
       <p>
         Are you sure you want to <span className="text-primary">DELETE</span>{" "}
-        the recipe for Steamed Salmon?
+        the recipe for {name}?
       </p>
       <br />
 
@@ -84,7 +101,7 @@ function DeleteModal({ open, setIsOpen }: ModalProps) {
   );
 }
 
-function DeleteFeedbackModal({ open, setIsOpen }: ModalProps) {
+function DeleteFeedbackModal({ open, setIsOpen, name }: NamedModalProps) {
   return (
     <Modal
       open={open}
@@ -100,7 +117,7 @@ function DeleteFeedbackModal({ open, setIsOpen }: ModalProps) {
         </>
       }
     >
-      <p>The recipe for Steamed Salmon has been deleted.</p>
+      <p>The recipe for {name} has been deleted.</p>
     </Modal>
   );
 }
