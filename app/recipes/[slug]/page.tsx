@@ -1,6 +1,7 @@
 import React from "react";
 import data from "@/data.json";
 import Image from "next/image";
+import Link from "next/link";
 
 function page({ params }: { params: { slug: string } }) {
   const recipe = data.recipes.find(
@@ -26,7 +27,10 @@ function page({ params }: { params: { slug: string } }) {
             </div>
             <div className="flex md:hidden items-center">
               <div className="gap-3 flex font-lexend text-base">
-                <button className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0">
+                <Link
+                  href={`/recipe/edit/${params.slug}`}
+                  className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                >
                   <Image
                     src={`/pen.svg`}
                     width={16}
@@ -34,7 +38,7 @@ function page({ params }: { params: { slug: string } }) {
                     alt={`pen`}
                     loading="lazy"
                   />
-                </button>
+                </Link>
                 <button className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete">
                   <Image
                     src={`/trash.svg`}
@@ -75,7 +79,10 @@ function page({ params }: { params: { slug: string } }) {
                 </div>
               </div>
               <div className="gap-5 hidden md:flex font-lexend text-base">
-                <button className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0">
+                <Link
+                  href={`/recipe/edit/${params.slug}`}
+                  className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                >
                   <div>Edit</div>
                   <Image
                     src={`/pen.svg`}
@@ -84,7 +91,7 @@ function page({ params }: { params: { slug: string } }) {
                     alt={`pen`}
                     loading="lazy"
                   />
-                </button>
+                </Link>
                 <button className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete">
                   <div>Delete</div>
                   <Image
@@ -110,8 +117,8 @@ function page({ params }: { params: { slug: string } }) {
           />
         </div>
       </div>
-      <div className="flex w-full h-full md:px-24 pt-[6.25rem] mx-auto container transition-all duration-300 ease-in-out">
-        <div className="h-full flex flex-col w-1/3 ">
+      <div className="flex flex-col md:flex-row w-full h-full p-4 md:px-24 pt-[6.25rem] mx-auto container transition-all duration-300 ease-in-out">
+        <div className="h-full flex flex-col md:w-1/3 w-full ">
           <div className="font-payton text-[2rem] text-primary">
             Ingredients
           </div>
@@ -122,7 +129,9 @@ function page({ params }: { params: { slug: string } }) {
             />
           </div>
         </div>
-        <div className="h-full w-2/3 ">s</div>
+        <div className="h-full md:w-2/3 w-full">
+          <div className="font-payton text-[2rem] text-primary">Procedures</div>
+        </div>
       </div>
     </div>
   );
