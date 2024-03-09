@@ -2,7 +2,7 @@ import { API_URL } from "@/utils/constants";
 import path from "path";
 
 export const getUserData = async () => {
-    const res = await fetch(`${API_URL}`, {
+    const res = await fetch(`/api`, {
       method: "GET",
       cache: "no-cache",
     });
@@ -12,7 +12,7 @@ export const getUserData = async () => {
   }
 
   export const addRecipe = async (data: any) => {
-    const res = await fetch(`${API_URL}/recipes`, {
+    const res = await fetch(`/api/recipes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export const getUserData = async () => {
 
   export const getRecipe = async (data: any) => {
   
-    const res = await fetch(`${API_URL}/recipes/${data}`, {
+    const res = await fetch(`/api/recipes/${data}`, {
       method: "GET",
       cache: "no-cache",
     });
