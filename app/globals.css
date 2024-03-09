@@ -4,7 +4,7 @@
 
 html, body{
   width: 100%;
-  height: 100%;
+ 
 }
 
 input[type="checkbox"] {
@@ -22,3 +22,28 @@ input[type="checkbox"] {
 .ingredients span {
   font-size: 24px;
 }
+
+input[type='file'] {
+  color: transparent;
+  visibility: hidden;
+}
+
+.ql-container,.ql-editor{
+  @apply min-h-[27rem]
+}
+
+.ql-toolbar .ql-picker-label,
+.ql-toolbar .ql-bold,
+.ql-toolbar .ql-italic,
+.ql-toolbar .ql-underline,
+.ql-toolbar .ql-stroke,
+.ql-toolbar .ql-blockquote {
+  @apply dark:text-light-0;
+  @apply dark:stroke-light-0;  
+}
+
+.ql-toolbar .ql-picker-item {
+  @apply dark:text-dark-0;
+  @apply dark:stroke-dark-0;
+}
+
