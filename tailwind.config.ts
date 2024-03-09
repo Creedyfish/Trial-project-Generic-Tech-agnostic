@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      "nav-container":{
+        center:true,
+        padding:"2rem",
+        margin:"100px",
+        screens:{
+          "2xl":"1400px",
+          "3xl":"1840px"
+        }
+      },
       fontFamily: {
         'payton': ['var(--font-payton)'],
         'lexend': ['var(--font-lexend)'],
