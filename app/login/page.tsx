@@ -27,7 +27,7 @@ function Page() {
     }
   };
   return (
-    <div className="w-full h-full flex justify-center relative">
+    <div className="w-full h-full flex justify-center">
       <div className="absolute -z-10 h-full w-full">
         <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-50% xl:from-40% to-transparent transition-all duration-300 ease-in-out"></div>
         <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
