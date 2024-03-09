@@ -3,7 +3,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
-import { Login } from "@/queries/apiQueries";
+import { login } from "@/queries/apiQueries";
 import { useRouter } from "next/navigation";
 type Inputs = {
   email: string;
@@ -14,7 +14,7 @@ function Page() {
   const { register, control, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const response = await Login(data);
+      const response = await login(data);
 
       console.log({ data: data, response });
       router.push("/");
@@ -28,18 +28,8 @@ function Page() {
   };
   return (
     <div className="w-full h-full flex justify-center relative">
-      {/* <div className="w-full h-full flex justify-end items-end absolute -z-10 pointer-events-none ">
-        <div className="">
-          <Image
-            src="/login-image.png"
-            width={2000}
-            height={2000}
-            className="object-contain"
-          />
-        </div>
-      </div> */}
       <div className="absolute -z-10 h-full w-full">
-        <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-40% to-transparent transition-all duration-300 ease-in-out"></div>
+        <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-50% xl:from-40% to-transparent transition-all duration-300 ease-in-out"></div>
         <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
           <div className="md:w-2/3 lg:w-2/5 h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out"></div>
           <Image
@@ -64,7 +54,7 @@ function Page() {
                 className="md:w-full transition-all duration-300 ease-in-out"
               />
             </div>
-            <div className="w-full md:text-base text-sm transition-all duration-300 ease-in-out">
+            <div className="w-full md:text-base text-[.625rem] transition-all duration-300 ease-in-out">
               Recipes from all over the world
             </div>
           </div>
@@ -73,37 +63,45 @@ function Page() {
               className="flex flex-col gap-6"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <label className=" text-sm flex flex-col gap-1">
-                <div className="text-primary"> Email Address </div>
+              <label className="  flex flex-col gap-1">
+                <div className="text-primary text-xs"> Email Address </div>
                 <input
                   type="email"
-                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
+                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-2 text-base outline-none dark:bg-dark-1"
                   {...register("email")}
                 />
               </label>
 
-              <label className=" text-sm flex flex-col gap-1">
-                <div className="text-primary"> Password </div>
-                <input
-                  type="password"
-                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-1 text-lg outline-none dark:bg-dark-1"
-                  {...register("password")}
-                />
-              </label>
+              <div className="flex flex-col gap-1">
+                <label className="  flex flex-col gap-1">
+                  <div className="text-primary text-xs"> Password </div>
+                  <input
+                    type="password"
+                    className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-2 text-base outline-none dark:bg-dark-1"
+                    {...register("password")}
+                  />
+                </label>
+                <button
+                  type="button"
+                  className="text-secondary hidden md:flex text-xs self-end"
+                >
+                  Forgot Password
+                </button>
+              </div>
 
               <button
                 type="submit"
-                className="w-full bg-primary rounded-full font-normal text-light-0 p-2"
+                className="w-[288px] bg-primary rounded-full font-normal text-light-0 p-2"
               >
                 Log In
               </button>
             </form>
 
-            <div className="flex gap-1 text-xs md:text-base justify-center transition-all duration-300 ease-in-out">
-              <div className="">Not yet registered?</div>
+            <div className="flex gap-1 text-xs md:text-base justify-center items-center transition-all duration-300 ease-in-out">
+              <div className="text-xs md:text-base">Not yet registered?</div>
               <Link
                 href={"/signup"}
-                className="text-primary font-bold underline"
+                className="text-primary text-xs md:text-xl font-bold underline"
               >
                 SIGN UP NOW!
               </Link>
