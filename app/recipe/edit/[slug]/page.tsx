@@ -37,7 +37,7 @@ type Inputs = {
   procedures: string;
 };
 
-function page({ params }: { params: { slug: string } }) {
+function Page({ params }: { params: { slug: string } }) {
   const { register, control, handleSubmit, setValue, watch, formState } =
     useForm<Inputs>();
   const { errors } = formState;
@@ -304,4 +304,4 @@ function page({ params }: { params: { slug: string } }) {
   );
 }
 
-export default page;
+export default Page;

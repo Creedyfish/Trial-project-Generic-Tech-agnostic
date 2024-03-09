@@ -26,7 +26,7 @@ type Inputs = {
   procedures: string;
 };
 
-function page() {
+function Page() {
   const { register, control, handleSubmit, setValue, watch, formState } =
     useForm<Inputs>();
   const { errors } = formState;
@@ -248,4 +248,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
