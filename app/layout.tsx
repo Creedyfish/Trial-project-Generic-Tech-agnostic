@@ -28,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-screen">
       <body
-        className={`${lexend.variable} ${payton.variable}  dark:bg-dark-0 `}
+        className={`${lexend.variable} ${payton.variable} dark:bg-dark-0 h-full min-w-[375px]`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
