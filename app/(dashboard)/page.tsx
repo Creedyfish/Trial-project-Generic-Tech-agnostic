@@ -127,19 +127,6 @@ export default function Home() {
                 </button>
               </div>
               <div className="items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-y-10 md:gap-x-5  transition-all duration-300 ease-in-out">
-                {/* {filteredData?.map((recipe, key) => (
-              <>
-                <Link
-                  href={`${
-                    active === "owner" ? "/recipes" : ""
-                  }/${recipe.name.replace(/\s/g, "-")}`}
-                  key={key}
-                  className="flex justify-center items-center group"
-                >
-                  <FoodCard name={recipe.name} image={recipe.main_image} />
-                </Link>
-              </>
-            ))} */}
                 <CardList data={currentCards} active={active} />
 
                 <div className="flex justify-center items-center md:hidden">
