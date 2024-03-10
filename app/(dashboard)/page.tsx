@@ -3,10 +3,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAllRecipesData, signUp } from "@/queries/apiQueries";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import CardList from "../components/CardList";
 import Pagination from "../components/Pagination";
 import Loading from "../Loading";
+import { Redirect } from "next";
 /**
  * Interface for a Recipe.
  * @interface Recipe
@@ -39,6 +40,14 @@ export default function Home() {
   const [filteredData, setFilteredData] = useState<Recipe[] | undefined>();
   // State for managing the loading state of the component.
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if 'redirected' key exists in localStorage
+    if (typeof window !== "undefined" && !localStorage.getItem("user")) {
+      // If 'redirected' key doesn't exist, redirect to '/login'
+      router.push("/login");
+    }
+  }, []);
 
   // Effect for fetching the recipes data on component mount.
   useEffect(() => {
