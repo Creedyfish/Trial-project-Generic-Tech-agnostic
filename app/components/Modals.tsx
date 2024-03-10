@@ -75,7 +75,7 @@ function SaveSuccessModal({ open, setIsOpen, name }: NamedModalProps) {
             onClick={() => {
               setIsOpen(false), router.push("/");
             }}
-            className="rounded-full w-full px-[3.125rem] py-3 bg-primary text-light-0"
+            className="w-full rounded-full bg-primary px-[3.125rem] py-3 text-light-0"
           >
             Yes
           </button>
@@ -115,7 +115,7 @@ function CancelModal({ open, setIsOpen }: ModalProps) {
             onClick={() => {
               setIsOpen(false);
             }}
-            className="rounded-full px-[3.125rem] py-3 bg-light-0 text-dark-0"
+            className="rounded-full bg-light-0 px-[3.125rem] py-3 text-dark-0"
           >
             No
           </button>
@@ -123,7 +123,7 @@ function CancelModal({ open, setIsOpen }: ModalProps) {
             onClick={() => {
               setIsOpen(false), router.push("/");
             }}
-            className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0"
+            className="rounded-full bg-primary px-[3.125rem] py-3 text-light-0"
           >
             Yes
           </button>
@@ -184,13 +184,13 @@ function DeleteModal({
         <>
           <button
             onClick={() => setIsOpen(false)}
-            className="rounded-full px-[3.125rem] py-3 bg-light-0 text-dark-0"
+            className="rounded-full bg-light-0 px-[3.125rem] py-3 text-dark-0"
           >
             No
           </button>
           <button
             onClick={() => onDelete(id)}
-            className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0"
+            className="rounded-full bg-primary px-[3.125rem] py-3 text-light-0"
           >
             Yes
           </button>
@@ -235,7 +235,7 @@ function DeleteFeedbackModal({ open, setIsOpen, name }: NamedModalProps) {
             onClick={() => {
               router.push("/");
             }}
-            className="rounded-full w-full px-[3.125rem] py-3 bg-primary text-light-0"
+            className="w-full rounded-full bg-primary px-[3.125rem] py-3 text-light-0"
           >
             Yes
           </button>

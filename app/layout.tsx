@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-screen">
       <body
-        className={`${lexend.variable} ${payton.variable} dark:bg-dark-0 h-full min-w-[375px]`}
+        className={`${lexend.variable} ${payton.variable} h-full min-w-[375px] dark:bg-dark-0`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

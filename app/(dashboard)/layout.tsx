@@ -23,7 +23,7 @@ export default async function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
   return (
-    <div className={`dark:bg-dark-0 h-full min-w-[375px]`}>
+    <div className={`h-full min-w-[375px] dark:bg-dark-0`}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <Header />
         {children}

@@ -24,8 +24,8 @@ import { useRouter } from "next/navigation";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="w-full sticky top-0 z-50 flex items-center px-5  justify-center  bg-primary py-4 ">
-      <div className="flex w-full max-w-[1920px] relative justify-between  ">
+    <nav className="sticky top-0 z-50 flex w-full items-center justify-center  bg-primary  px-5 py-4 ">
+      <div className="relative flex w-full max-w-[1920px] justify-between  ">
         <Link href={"/"} className="">
           <Image
             src={"/header-cooky-logo.png"}
@@ -72,12 +72,12 @@ function Settings() {
     return null;
   }
   return (
-    <div className="absolute top-20 flex w-full justify-end pointer-events-none">
-      <div className="p-5 gap-5 flex flex-col bg-light-0 dark:bg-dark-0 rounded-lg pointer-events-auto">
+    <div className="pointer-events-none absolute top-20 flex w-full justify-end">
+      <div className="pointer-events-auto flex flex-col gap-5 rounded-lg bg-light-0 p-5 dark:bg-dark-0">
         {resolvedTheme === "dark" ? (
           <button
             onClick={() => setTheme("light")}
-            className="flex gap-1 items-center text-sm"
+            className="flex items-center gap-1 text-sm"
           >
             <div>
               <Image
@@ -93,7 +93,7 @@ function Settings() {
         ) : (
           <button
             onClick={() => setTheme("dark")}
-            className="flex gap-1 items-center text-sm"
+            className="flex items-center gap-1 text-sm"
           >
             <div>
               <Image src={"/moon.svg"} width={14} height={14} alt="moon-logo" />
@@ -104,7 +104,7 @@ function Settings() {
 
         <button
           onClick={() => logoutHandler()}
-          className="flex gap-1 items-center text-sm"
+          className="flex items-center gap-1 text-sm"
         >
           <div>
             {resolvedTheme === "dark" ? (

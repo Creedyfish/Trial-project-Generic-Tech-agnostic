@@ -84,14 +84,14 @@ function Page({ params }: { params: { slug: string } }) {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="w-full h-full ">
-          <div className="relative w-full xl:h-[32rem] md:h-[18.75rem] h-[12.5rem] flex justify-center transition-all duration-300 ease-in-out ">
-            <div className=" bg-gradient-to-t from-black from-10%  to-transparent w-full h-full absolute"></div>
-            <div className="flex flex-col text-light-0 justify-between w-full h-full p-5 md:px-24 md:pb-10 md:pt-16 mx-auto container transition-all duration-300 ease-in-out absolute">
-              <div className="flex justify-between items-center">
+        <div className="h-full w-full ">
+          <div className="relative flex h-[12.5rem] w-full justify-center transition-all duration-300 ease-in-out md:h-[18.75rem] xl:h-[32rem] ">
+            <div className=" absolute h-full w-full  bg-gradient-to-t from-black from-10% to-transparent"></div>
+            <div className="container absolute mx-auto flex h-full w-full flex-col justify-between p-5 text-light-0 transition-all duration-300 ease-in-out md:px-24 md:pb-10 md:pt-16">
+              <div className="flex items-center justify-between">
                 <Link
                   href={"/"}
-                  className="flex items-center gap-3 font-lexend font-semibold text-sm md:text-2xl transition-all duration-300 ease-in-out"
+                  className="flex items-center gap-3 font-lexend text-sm font-semibold transition-all duration-300 ease-in-out md:text-2xl"
                 >
                   <Image
                     src={`/arrow-left.svg`}
@@ -99,15 +99,15 @@ function Page({ params }: { params: { slug: string } }) {
                     height={36}
                     alt={`arrow-left`}
                     loading="lazy"
-                    className="w-[0.875rem] h-4 md:w-8 md:h-9"
+                    className="h-4 w-[0.875rem] md:h-9 md:w-8"
                   />
                   <div>Back to Feed</div>
                 </Link>
-                <div className="flex md:hidden items-center">
-                  <div className="gap-3 flex font-lexend text-base">
+                <div className="flex items-center md:hidden">
+                  <div className="flex gap-3 font-lexend text-base">
                     <Link
                       href={`/recipe/edit/${params.slug}`}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                      className="flex h-[2.375rem] w-[2.375rem] items-center justify-between rounded-full border-[0.0625rem] border-light-0 p-[0.625rem] text-light-0"
                     >
                       <Image
                         src={`/pen.svg`}
@@ -119,7 +119,7 @@ function Page({ params }: { params: { slug: string } }) {
                     </Link>
                     <button
                       onClick={() => deleteHandler}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
+                      className="flex h-[2.375rem] w-[2.375rem] items-center justify-between rounded-full border-[0.0625rem] border-red-delete p-[0.625rem] text-red-delete"
                     >
                       <Image
                         src={`/trash.svg`}
@@ -133,11 +133,11 @@ function Page({ params }: { params: { slug: string } }) {
                 </div>
               </div>
               <div className=" flex flex-col gap-4 ">
-                <div className="font-payton text-2xl md:text-[4rem] md:leading-[3rem] transition-all duration-300 ease-in-out">
+                <div className="font-payton text-2xl transition-all duration-300 ease-in-out md:text-[4rem] md:leading-[3rem]">
                   {datapi?.name}
                 </div>
-                <div className="flex justify-between items-end">
-                  <div className="flex gap-10 text-secondary font-lexend text-xs md:text-base transition-all duration-300 ease-in-out">
+                <div className="flex items-end justify-between">
+                  <div className="flex gap-10 font-lexend text-xs text-secondary transition-all duration-300 ease-in-out md:text-base">
                     <div className="flex items-center gap-2">
                       <Image
                         src={`/utensils.svg`}
@@ -159,10 +159,10 @@ function Page({ params }: { params: { slug: string } }) {
                       <div>{datapi?.prep_time} Minutes</div>
                     </div>
                   </div>
-                  <div className="gap-5 hidden md:flex font-lexend text-base">
+                  <div className="hidden gap-5 font-lexend text-base md:flex">
                     <Link
                       href={`/recipe/edit/${params.slug}`}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                      className="flex h-[2.375rem] w-[6.625rem] items-center justify-between rounded-full border-[0.0625rem] border-light-0 p-[0.625rem] text-light-0"
                     >
                       <div>Edit</div>
                       <Image
@@ -175,7 +175,7 @@ function Page({ params }: { params: { slug: string } }) {
                     </Link>
                     <button
                       onClick={() => deleteHandler()}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
+                      className="flex h-[2.375rem] w-[6.625rem] items-center justify-between rounded-full border-[0.0625rem] border-red-delete p-[0.625rem] text-red-delete"
                     >
                       <div>Delete</div>
                       <Image
@@ -197,26 +197,26 @@ function Page({ params }: { params: { slug: string } }) {
                 height={150}
                 alt={`${datapi?.name}.image`}
                 loading="lazy"
-                className="w-full xl:h-[32rem] md:h-[18.75rem] h-[12.5rem] object-cover transition-all duration-300 ease-in-out"
+                className="h-[12.5rem] w-full object-cover transition-all duration-300 ease-in-out md:h-[18.75rem] xl:h-[32rem]"
               />
             </div>
           </div>
-          <div className="flex flex-col gap-5 md:gap-14 md:flex-row w-full h-full md:h-screen overflow-hidden p-4 md:px-24 md:pt-[6.25rem] mx-auto container transition-all duration-300 ease-in-out">
-            <div className="h-full flex gap-5 flex-col md:w-1/3 w-full transition-all duration-300 ease-in-out">
-              <div className="font-payton text-xl md:text-[2rem] text-primary  transition-all duration-300 ease-in-out">
+          <div className="container mx-auto flex h-full w-full flex-col gap-5 overflow-hidden p-4 transition-all duration-300 ease-in-out md:h-screen md:flex-row md:gap-14 md:px-24 md:pt-[6.25rem]">
+            <div className="flex h-full w-full flex-col gap-5 transition-all duration-300 ease-in-out md:w-1/3">
+              <div className="font-payton text-xl text-primary transition-all  duration-300 ease-in-out md:text-[2rem]">
                 Ingredients
               </div>
               <div>
                 <div
-                  className="ingredients font-lexend list-disc"
+                  className="ingredients list-disc font-lexend"
                   dangerouslySetInnerHTML={{
                     __html: datapi?.ingredients ?? "",
                   }}
                 />
               </div>
             </div>
-            <div className="procedures flex flex-col h-full md:w-2/3 gap-5 w-full md:overflow-auto md:scroll-smooth  transition-all duration-300 ease-in-out">
-              <div className="font-payton text-xl md:text-[2rem] text-primary transition-all duration-300 ease-in-out">
+            <div className="procedures flex h-full w-full flex-col gap-5 transition-all duration-300 ease-in-out  md:w-2/3 md:overflow-auto md:scroll-smooth">
+              <div className="font-payton text-xl text-primary transition-all duration-300 ease-in-out md:text-[2rem]">
                 Procedures
               </div>
               <div>

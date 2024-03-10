@@ -44,54 +44,54 @@ function Page() {
     }
   };
   return (
-    <div className="w-full h-screen flex justify-center">
+    <div className="flex h-screen w-full justify-center">
       <div className="absolute -z-10 h-full w-full">
-        <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-50% xl:from-40% to-transparent transition-all duration-300 ease-in-out"></div>
-        <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
-          <div className="md:w-2/3 lg:w-2/5 h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out"></div>
+        <div className="absolute h-full w-full bg-gradient-to-r from-light-0 to-transparent transition-all duration-300 ease-in-out dark:from-dark-0 md:from-70% lg:from-50% xl:from-40%"></div>
+        <div className="flex h-full w-full bg-light-0 transition-all duration-300 ease-in-out dark:bg-dark-0">
+          <div className="h-full bg-light-0 transition-all duration-300 ease-in-out dark:bg-dark-0 md:w-2/3 lg:w-2/5"></div>
           <Image
             src="/signup-image.png"
             width={2000}
             height={2000}
             alt="bg-signup-image"
-            className="object-cover md:w-1/3 lg:w-3/5 h-full hidden md:flex transition-all duration-300 ease-in-out"
+            className="hidden h-full object-cover transition-all duration-300 ease-in-out md:flex md:w-1/3 lg:w-3/5"
           />
         </div>
       </div>
-      <div className="w-full h-full flex flex-col items-center justify-center md:items-start md:px-24 px-9  container  transition-all duration-300 ease-in-out">
-        <div className="flex flex-col justify-center md:items-start items-center gap-24 h-full max-w-[375px] md:max-w-none">
-          <div className="flex items-center gap-2 justify-center">
-            <div className="text-2xl md:text-6xl flex items-center  font-payton text-primary transition-all duration-300 ease-in-out">
+      <div className="container flex h-full w-full flex-col items-center justify-center px-9 transition-all  duration-300  ease-in-out md:items-start md:px-24">
+        <div className="flex h-full max-w-[375px] flex-col items-center justify-center gap-24 md:max-w-none md:items-start">
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center font-payton text-2xl  text-primary transition-all duration-300 ease-in-out md:text-6xl">
               Sign up to
             </div>
-            <div className="translate-y-1 md:translate-y-3 transition-all duration-300 ease-in-out">
+            <div className="translate-y-1 transition-all duration-300 ease-in-out md:translate-y-3">
               <Image
                 src={"/cooky-logo.png"}
                 width={180.55}
                 height={56.18}
                 alt="mobile-logo"
-                className="w-[4.5rem] md:w-[12.75rem] transition-all duration-300 ease-in-out"
+                className="w-[4.5rem] transition-all duration-300 ease-in-out md:w-[12.75rem]"
               />
             </div>
           </div>
-          <div className="items-start flex justify-start font-lexend">
+          <div className="flex items-start justify-start font-lexend">
             <form
               className="flex flex-col gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label className="  flex flex-col gap-1">
-                <div className="text-primary text-xs">Name</div>
+                <div className="text-xs text-primary">Name</div>
                 <input
                   type="text"
-                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-2 text-base outline-none dark:bg-dark-1"
+                  className="w-full rounded-full bg-bg-input px-4 py-2 text-base text-dark-0 outline-none dark:bg-dark-1 dark:text-light-0"
                   {...register("name", { required: "Name is required" })}
                 />
               </label>
               <label className="  flex flex-col gap-1">
-                <div className="text-primary text-xs">Email Address</div>
+                <div className="text-xs text-primary">Email Address</div>
                 <input
                   type="email"
-                  className="bg-bg-input rounded-full text-dark-0 dark:text-light-0 w-full px-4 py-2 text-base outline-none dark:bg-dark-1"
+                  className="w-full rounded-full bg-bg-input px-4 py-2 text-base text-dark-0 outline-none dark:bg-dark-1 dark:text-light-0"
                   {...register("email", {
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -102,10 +102,10 @@ function Page() {
               </label>
 
               <label className="  flex flex-col gap-1">
-                <div className="text-primary text-xs">Password</div>
+                <div className="text-xs text-primary">Password</div>
                 <input
                   type="password"
-                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-2 text-base outline-none dark:bg-dark-1"
+                  className="w-full rounded-full bg-bg-input px-4 py-2 text-base text-dark-0 outline-none dark:bg-dark-1 dark:text-light-0"
                   {...register("password", {
                     minLength: {
                       value: 8,
@@ -118,10 +118,10 @@ function Page() {
                 </div>
               </label>
               <label className="  flex flex-col gap-1">
-                <div className="text-primary text-xs">Repeat Password</div>
+                <div className="text-xs text-primary">Repeat Password</div>
                 <input
                   type="password"
-                  className="bg-bg-input text-dark-0 dark:text-light-0 w-full rounded-full px-4 py-2 text-base outline-none dark:bg-dark-1"
+                  className="w-full rounded-full bg-bg-input px-4 py-2 text-base text-dark-0 outline-none dark:bg-dark-1 dark:text-light-0"
                   {...register("repeatPassword", {
                     validate: (value) =>
                       value === watch("password") ||
@@ -133,11 +133,11 @@ function Page() {
                 </div>
               </label>
 
-              <label className=" flex flex-col text-base  gap-1 text-primary dark:text-light-0">
+              <label className=" flex flex-col gap-1  text-base text-primary dark:text-light-0">
                 <div className="flex gap-2">
                   <input
                     type="checkbox"
-                    className=" accent-primary text-primary  dark:text-light-0"
+                    className=" text-primary accent-primary  dark:text-light-0"
                     {...register("agreeToTerms", {
                       required: "You must agree to the Terms and Conditions",
                     })}
@@ -149,11 +149,11 @@ function Page() {
                 </div>
               </label>
 
-              <label className=" flex flex-col text-base  gap-1 text-primary dark:text-light-0">
+              <label className=" flex flex-col gap-1  text-base text-primary dark:text-light-0">
                 <div className="flex gap-2">
                   <input
                     type="checkbox"
-                    className=" accent-primary text-primary dark:text-light-0 border border-red-500"
+                    className=" border border-red-500 text-primary accent-primary dark:text-light-0"
                     {...register("agreeToPrivacyPolicy", {
                       required: "You must agree to the Privacy Policy",
                     })}
@@ -167,15 +167,15 @@ function Page() {
 
               <button
                 type="submit"
-                className="w-full bg-primary rounded-full font-normal text-light-0 p-2"
+                className="w-full rounded-full bg-primary p-2 font-normal text-light-0"
               >
                 Sign Up
               </button>
-              <div className="flex gap-1 text-xs justify-center">
+              <div className="flex justify-center gap-1 text-xs">
                 <div className="">Already have an account?</div>
                 <Link
                   href={"/login"}
-                  className="text-primary font-bold underline"
+                  className="font-bold text-primary underline"
                 >
                   Log In instead
                 </Link>

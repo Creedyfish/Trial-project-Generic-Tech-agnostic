@@ -42,10 +42,10 @@ function CardList({
         <Link
           href={`${active === "owner" ? "/recipes" : ""}/${recipe.name.replace(
             /\s/g,
-            "-"
+            "-",
           )}`}
           key={key}
-          className="flex justify-center items-center group"
+          className="group flex items-center justify-center"
         >
           <FoodCard name={recipe.name} image={recipe.main_image} />
         </Link>

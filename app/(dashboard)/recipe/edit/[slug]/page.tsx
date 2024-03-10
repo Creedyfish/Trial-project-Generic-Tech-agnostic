@@ -128,53 +128,53 @@ function Page({ params }: { params: { slug: string } }) {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="w-full h-full flex justify-center relative">
+        <div className="relative flex h-full w-full justify-center">
           <div className="absolute z-0 h-full w-full">
-            <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-60%  to-transparent transition-all duration-300 ease-in-out"></div>
-            <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
-              <div className="md:w-2/3 lg:w-2/5 h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out"></div>
+            <div className="absolute h-full w-full bg-gradient-to-r from-light-0 to-transparent transition-all duration-300  ease-in-out dark:from-dark-0 md:from-70% lg:from-60%"></div>
+            <div className="flex h-full w-full bg-light-0 transition-all duration-300 ease-in-out dark:bg-dark-0">
+              <div className="h-full bg-light-0 transition-all duration-300 ease-in-out dark:bg-dark-0 md:w-2/3 lg:w-2/5"></div>
               <Image
                 src={`/${datapi?.main_image}`}
                 width={2000}
                 height={2000}
                 alt="bg-create-image"
                 loading="lazy"
-                className="object-cover md:w-1/3 lg:w-3/5 h-full hidden md:flex transition-all duration-300 ease-in-out"
+                className="hidden h-full object-cover transition-all duration-300 ease-in-out md:flex md:w-1/3 lg:w-3/5"
               />
             </div>
           </div>
 
-          <div className="w-full h-full z-10 flex flex-col justify-center items-center md:items-start md:px-24 md:pt-24 py-5 px-9 container transition-all duration-300 ease-in-out">
-            <div className="w-full h-full md:w-2/3 lg:w-3/5 xl:w-1/2  transition-all duration-300 ease-in-out">
-              <div className="flex flex-col gap-10 h-full w-full ">
+          <div className="container z-10 flex h-full w-full flex-col items-center justify-center px-9 py-5 transition-all duration-300 ease-in-out md:items-start md:px-24 md:pt-24">
+            <div className="h-full w-full transition-all duration-300 ease-in-out  md:w-2/3 lg:w-3/5 xl:w-1/2">
+              <div className="flex h-full w-full flex-col gap-10 ">
                 <Link
                   href={"/"}
-                  className="flex gap-2 items-center font-semibold font-lexend text-sm transition-all duration-100 ease-in-out text-dark-0 dark:text-light-0"
+                  className="flex items-center gap-2 font-lexend text-sm font-semibold text-dark-0 transition-all duration-100 ease-in-out dark:text-light-0"
                 >
                   <svg
                     width="14"
                     height="16"
                     viewBox="0 0 33 28"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="fill-dark-0 dark:fill-light-0 transition-all duration-300 ease-in-out"
+                    className="fill-dark-0 transition-all duration-300 ease-in-out dark:fill-light-0"
                   >
                     <path d="M32.4297 14.5C32.4297 15.7656 31.4453 16.75 30.25 16.75H8.66406L16.0469 24.2031C16.9609 25.0469 16.9609 26.5234 16.0469 27.3672C15.625 27.7891 15.0625 28 14.5 28C13.8672 28 13.3047 27.7891 12.8828 27.3672L1.63281 16.1172C0.71875 15.2734 0.71875 13.7969 1.63281 12.9531L12.8828 1.70312C13.7266 0.789062 15.2031 0.789062 16.0469 1.70312C16.9609 2.54688 16.9609 4.02344 16.0469 4.86719L8.66406 12.25H30.25C31.4453 12.25 32.4297 13.3047 32.4297 14.5Z" />
                   </svg>
                   <div>Back to Feed</div>
                 </Link>
-                <div className="font-payton text-[2rem] hidden md:flex leading-[2.5rem] text-primary">
+                <div className="hidden font-payton text-[2rem] leading-[2.5rem] text-primary md:flex">
                   Edit {datapi?.name}
                 </div>
                 <form
-                  className="flex flex-col gap-6 w-full font-lexend"
+                  className="flex w-full flex-col gap-6 font-lexend"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <label className="w-full flex flex-col gap-1">
-                    <div className="text-xs md:text-xl text-primary">
+                  <label className="flex w-full flex-col gap-1">
+                    <div className="text-xs text-primary md:text-xl">
                       Recipe Name
                     </div>
                     <input
-                      className="w-full px-4 py-[0.625rem] text-base rounded-full outline-none bg-bg-input dark:bg-dark-1"
+                      className="w-full rounded-full bg-bg-input px-4 py-[0.625rem] text-base outline-none dark:bg-dark-1"
                       type="text"
                       {...register("name", {
                         required: "Recipe name is required",
@@ -186,24 +186,24 @@ function Page({ params }: { params: { slug: string } }) {
                   </label>
 
                   <div className="flex gap-3">
-                    <label className="w-full flex flex-col gap-1">
-                      <div className="text-xs md:text-xl text-primary ">
+                    <label className="flex w-full flex-col gap-1">
+                      <div className="text-xs text-primary md:text-xl ">
                         Number of Servings
                       </div>
                       <input
-                        className="w-full px-4 py-[0.625rem] text-base rounded-full outline-none bg-bg-input dark:bg-dark-1"
+                        className="w-full rounded-full bg-bg-input px-4 py-[0.625rem] text-base outline-none dark:bg-dark-1"
                         type="number"
                         min={1}
                         defaultValue={1}
                         {...register("servings", { min: 1 })}
                       />
                     </label>
-                    <label className="w-full flex flex-col gap-1">
-                      <div className="text-xs md:text-xl text-primary">
+                    <label className="flex w-full flex-col gap-1">
+                      <div className="text-xs text-primary md:text-xl">
                         Preparation Time
                       </div>
                       <input
-                        className="w-full px-4 py-[0.625rem] text-base rounded-full outline-none bg-bg-input dark:bg-dark-1"
+                        className="w-full rounded-full bg-bg-input px-4 py-[0.625rem] text-base outline-none dark:bg-dark-1"
                         type="number"
                         step="5"
                         placeholder="Number of minutes"
@@ -212,13 +212,13 @@ function Page({ params }: { params: { slug: string } }) {
                     </label>
                   </div>
                   <div className="flex flex-col ">
-                    <div className="text-xs md:text-xl text-primary">
+                    <div className="text-xs text-primary md:text-xl">
                       Main Image
                     </div>
                     <div className="relative flex items-center justify-end">
-                      <label className="w-full flex flex-col gap-1">
+                      <label className="flex w-full flex-col gap-1">
                         <input
-                          className="w-full px-4 py-[0.625rem] text-base rounded-full outline-none bg-bg-input dark:bg-dark-1"
+                          className="w-full rounded-full bg-bg-input px-4 py-[0.625rem] text-base outline-none dark:bg-dark-1"
                           type="text"
                           value={cfileName}
                           // {...register("main_image", {
@@ -234,10 +234,10 @@ function Page({ params }: { params: { slug: string } }) {
                           }}
                         />
                       </label>
-                      <div className="flex justify-center items-center absolute mx-[.325rem]">
+                      <div className="absolute mx-[.325rem] flex items-center justify-center">
                         <label
                           htmlFor="files"
-                          className="cursor-pointer text-xs w-full px-5 py-2 text-light-0 bg-primary rounded-full"
+                          className="w-full cursor-pointer rounded-full bg-primary px-5 py-2 text-xs text-light-0"
                         >
                           Browse
                           <Controller
@@ -271,8 +271,8 @@ function Page({ params }: { params: { slug: string } }) {
                     </div>
                   </div>
 
-                  <div className="w-full flex flex-col gap-1">
-                    <div className="text-xs md:text-xl text-primary">
+                  <div className="flex w-full flex-col gap-1">
+                    <div className="text-xs text-primary md:text-xl">
                       Ingredients
                     </div>
                     <Controller
@@ -291,10 +291,10 @@ function Page({ params }: { params: { slug: string } }) {
                       )}
                     />
                   </div>
-                  <div className="text-xs md:text-xl text-primary">
+                  <div className="text-xs text-primary md:text-xl">
                     Procedure
                   </div>
-                  <div className="w-full flex flex-col gap-1">
+                  <div className="flex w-full flex-col gap-1">
                     <Controller
                       name="procedures"
                       control={control}
@@ -315,13 +315,13 @@ function Page({ params }: { params: { slug: string } }) {
                     <button
                       type="button"
                       onClick={() => setCancelIsOpen(true)}
-                      className="w-full md:w-auto text-dark-0 dark:text-light-0 font-lexend text-sm md:text-base px-4 py-2  rounded-full"
+                      className="w-full rounded-full px-4 py-2 font-lexend text-sm text-dark-0 dark:text-light-0 md:w-auto  md:text-base"
                     >
                       Cancel Edit
                     </button>
                     <button
                       type="submit"
-                      className="w-full md:w-auto text-light-0 font-lexend text-sm md:text-base px-4 py-2 bg-primary rounded-full"
+                      className="w-full rounded-full bg-primary px-4 py-2 font-lexend text-sm text-light-0 md:w-auto md:text-base"
                     >
                       Save Changes
                     </button>

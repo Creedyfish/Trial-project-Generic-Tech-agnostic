@@ -33,14 +33,14 @@ interface ModalProps {
 function Modal({ title, children, buttons, open }: ModalProps) {
   if (!open) return null;
   return (
-    <div className="fixed flex top-0 z-50 w-full h-full bg-dark-0 bg-opacity-20 justify-center items-center">
-      <div className="py-6 px-5 w-80 h-64 bg-light-0 dark:bg-dark-0 rounded-lg font-lexend shadow-xl">
-        <div className="w-full h-full flex flex-col justify-between text-dark-0 dark:text-light-0">
+    <div className="fixed top-0 z-50 flex h-full w-full items-center justify-center bg-dark-0 bg-opacity-20">
+      <div className="h-64 w-80 rounded-lg bg-light-0 px-5 py-6 font-lexend shadow-xl dark:bg-dark-0">
+        <div className="flex h-full w-full flex-col justify-between text-dark-0 dark:text-light-0">
           <div className="flex flex-col gap-4">
-            <div className="font-payton text-primary text-2xl">{title}</div>
+            <div className="font-payton text-2xl text-primary">{title}</div>
             <div className="text-base ">{children}</div>
           </div>
-          <div className="text-sm flex justify-between">{buttons}</div>
+          <div className="flex justify-between text-sm">{buttons}</div>
         </div>
       </div>
     </div>

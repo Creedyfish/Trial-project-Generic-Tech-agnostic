@@ -93,8 +93,8 @@ export default function Home() {
         <Loading />
       ) : (
         <>
-          <div className="absolute hidden h-full top-0 z-0 md:visible md:flex w-full justify-center items-start transition-all duration-300 ease-in-out">
-            <div className="max-w-[1920px] flex w-full justify-end">
+          <div className="absolute top-0 z-0 hidden h-full w-full items-start justify-center transition-all duration-300 ease-in-out md:visible md:flex">
+            <div className="flex w-full max-w-[1920px] justify-end">
               <Image
                 src={"/knife-and-spatchula.png"}
                 width={500}
@@ -104,23 +104,23 @@ export default function Home() {
               />
             </div>
           </div>
-          <main className="w-full h-full md:px-24 md:pt-24 p-4 mx-auto container relative transition-all duration-300 ease-in-out">
-            <div className="flex flex-col gap-8 w-full h-full">
-              <div className="flex flex-col gap-2 md:gap-5 transition-all duration-300 ease-in-out">
-                <div className="font-payton text-dark-0 text-xl md:text-[2rem] dark:text-light-0 transition-all duration-300 ease-in-out">
+          <main className="container relative mx-auto h-full w-full p-4 transition-all duration-300 ease-in-out md:px-24 md:pt-24">
+            <div className="flex h-full w-full flex-col gap-8">
+              <div className="flex flex-col gap-2 transition-all duration-300 ease-in-out md:gap-5">
+                <div className="font-payton text-xl text-dark-0 transition-all duration-300 ease-in-out dark:text-light-0 md:text-[2rem]">
                   Hi, Bada Lee
                 </div>
-                <div className="text-primary font-semibold font-lexend text-sm md:text-xl transition-all duration-300 ease-in-out">
+                <div className="font-lexend text-sm font-semibold text-primary transition-all duration-300 ease-in-out md:text-xl">
                   This is your Recipe Collection
                 </div>
               </div>
-              <div className="flex justify-center md:justify-between items-center font-lexend text-light-0 transition-all duration-300 ease-in-out">
+              <div className="flex items-center justify-center font-lexend text-light-0 transition-all duration-300 ease-in-out md:justify-between">
                 <div>
                   <button
                     className={`px-5 py-3 transition-all duration-300 ease-in-out ${
                       active === "owner"
                         ? "bg-primary"
-                        : "bg-light-0 dark:bg-dark-0 text-gray-cooky"
+                        : "bg-light-0 text-gray-cooky dark:bg-dark-0"
                     }`}
                     onClick={() => {
                       setActive("owner");
@@ -132,7 +132,7 @@ export default function Home() {
                     className={`px-5 py-3 transition-all duration-300 ease-in-out ${
                       active === "other"
                         ? "bg-primary"
-                        : "bg-light-0 dark:bg-dark-0 text-gray-cooky"
+                        : "bg-light-0 text-gray-cooky dark:bg-dark-0"
                     } `}
                     onClick={() => {
                       setActive("other");
@@ -146,24 +146,24 @@ export default function Home() {
                   className={`${
                     active === "other"
                       ? "hidden"
-                      : "md:flex transition-all duration-300 ease-in-out"
-                  } hidden px-5 py-3 bg-primary rounded-full active:scale-90 hover:ring-2 dark:hover:ring-light-0 hover:ring-secondary`}
+                      : "transition-all duration-300 ease-in-out md:flex"
+                  } hidden rounded-full bg-primary px-5 py-3 hover:ring-2 hover:ring-secondary active:scale-90 dark:hover:ring-light-0`}
                 >
                   New Recipe
                 </button>
               </div>
-              <div className="items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-y-10 md:gap-x-5  transition-all duration-300 ease-in-out">
+              <div className="grid grid-cols-1 items-start gap-5 transition-all duration-300 ease-in-out sm:grid-cols-2 md:gap-x-5  md:gap-y-10 lg:grid-cols-3 xl:grid-cols-4">
                 <CardList data={currentCards} active={active} />
 
-                <div className="flex justify-center items-center md:hidden">
-                  <div className="flex w-[20.3125rem] h-[9.5rem]  flex-col justify-center items-center gap-2">
-                    <div className="flex md:hidden h-full w-full justify-center items-center font-lexend text-xs text-primary">
+                <div className="flex items-center justify-center md:hidden">
+                  <div className="flex h-[9.5rem] w-[20.3125rem]  flex-col items-center justify-center gap-2">
+                    <div className="flex h-full w-full items-center justify-center font-lexend text-xs text-primary md:hidden">
                       <div>That&apos;s all we have for now</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="hidden md:flex h-full w-full justify-end items-center">
+              <div className="hidden h-full w-full items-center justify-end md:flex">
                 <Pagination
                   itemsPerPage={cardsPerPage}
                   totalItems={filteredData?.length}
@@ -172,9 +172,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="fixed flex flex-col md:hidden gap-4 right-7 bottom-6">
+            <div className="fixed bottom-6 right-7 flex flex-col gap-4 md:hidden">
               <button
-                className="w-11 h-11 rounded-full bg-primary flex justify-center items-center active:scale-90 active:ring-2 dark:active:ring-light-0 active:ring-secondary transition-all duration-300 ease-out"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-primary transition-all duration-300 ease-out active:scale-90 active:ring-2 active:ring-secondary dark:active:ring-light-0"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 <Image
@@ -187,7 +187,7 @@ export default function Home() {
               </button>
               <Link
                 href={"/recipe/create"}
-                className="w-11 h-11 rounded-full bg-primary flex justify-center items-center active:scale-90 active:ring-2 dark:active:ring-light-0 active:ring-secondary transition-all duration-300 ease-out"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-primary transition-all duration-300 ease-out active:scale-90 active:ring-2 active:ring-secondary dark:active:ring-light-0"
               >
                 <Image
                   src={"/plus.svg"}

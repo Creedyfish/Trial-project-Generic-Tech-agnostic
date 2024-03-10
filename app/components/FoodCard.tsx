@@ -32,7 +32,7 @@ function FoodCard({ name, image }: Props) {
 
   // The component returns a div element with a specific style, containing an Image component and a div for the name
   return (
-    <div className="flex w-[20.3125rem]  flex-col justify-center items-center gap-2">
+    <div className="flex w-[20.3125rem] flex-col items-center justify-center gap-2">
       <div className="overflow-hidden">
         <Image
           src={`/${image}`} // Image source is derived from the image prop
@@ -40,10 +40,10 @@ function FoodCard({ name, image }: Props) {
           height={150}
           alt={`${name}.image`} // Alt text for the image is derived from the name prop
           loading="lazy" // Image loading is set to lazy to improve performance
-          className="w-[20.3125rem] h-[9.5rem] object-cover group-hover:scale-110 rounded-md transition-all duration-300 ease-in-out" // Various CSS classes for styling
+          className="h-[9.5rem] w-[20.3125rem] rounded-md object-cover transition-all duration-300 ease-in-out group-hover:scale-110" // Various CSS classes for styling
         />
       </div>
-      <div className="font-lexend w-full font-semibold text-sm md:text-xl items-start border-l-4 border-secondary">
+      <div className="w-full items-start border-l-4 border-secondary font-lexend text-sm font-semibold md:text-xl">
         {/* The name prop is displayed here */}
         <div className="px-2">{name}</div>
       </div>

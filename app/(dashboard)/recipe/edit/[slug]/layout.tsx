@@ -15,7 +15,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <Suspense fallback={<Loading />}>{children}</Suspense>
     </div>
   );

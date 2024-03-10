@@ -2,7 +2,7 @@ import React from "react";
 
 function Loading() {
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center font-payton text-lg md:text-2xl">
+    <div className="flex h-screen w-full flex-col items-center justify-center font-payton text-lg md:text-2xl">
       <svg
         width="129"
         height="129"
