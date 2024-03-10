@@ -39,17 +39,16 @@ function CardList({
   return (
     <>
       {data?.map((recipe: Recipe, key: number) => (
-        <>
-          <Link
-            href={`${
-              active === "owner" ? "/recipes" : ""
-            }/${recipe.name.replace(/\s/g, "-")}`}
-            key={key}
-            className="flex justify-center items-center group"
-          >
-            <FoodCard name={recipe.name} image={recipe.main_image} />
-          </Link>
-        </>
+        <Link
+          href={`${active === "owner" ? "/recipes" : ""}/${recipe.name.replace(
+            /\s/g,
+            "-"
+          )}`}
+          key={key}
+          className="flex justify-center items-center group"
+        >
+          <FoodCard name={recipe.name} image={recipe.main_image} />
+        </Link>
       ))}
     </>
   );
