@@ -36,7 +36,15 @@ export const getAllRecipesData = async () => {
     const result = await res.json();
     return result;
   };
-
+/**
+ * This function sends a PUT request to the '/api/recipes' endpoint to update a recipe.
+ * It expects an object with the data for the recipe to be updated.
+ * The data is converted to a JSON string and included in the body of the request.
+ * The function then waits for the response, converts the response to JSON, and returns the result.
+ *
+ * @param data - The data for the recipe to be updated. This should be an object that can be converted to a JSON string.
+ * @returns A Promise that resolves to the result of the PUT request.
+ */
   export const UpdateRecipe = async (data: any) =>  {
     const res = await fetch('/api/recipes', {
       method: 'PUT',
