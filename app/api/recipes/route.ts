@@ -9,12 +9,4 @@ export async function GET(req: Request, res: NextResponse) {
   }
 }
 
-export async function POST(req: Request, res: NextResponse) {
-    try {
-        const data = req.body
-    return NextResponse.json({message:"submitted and saved",data:data});
-  } catch (error) {
-    return NextResponse.json(error);
-  }
-}
 
