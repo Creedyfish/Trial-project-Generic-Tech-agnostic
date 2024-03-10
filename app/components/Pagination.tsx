@@ -35,6 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({
   ) {
     pageNumbers.push(i);
   }
+
   /**
    * Handle click event on a page number.
    *
