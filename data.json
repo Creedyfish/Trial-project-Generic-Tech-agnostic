@@ -10,7 +10,7 @@
         {
             "id": 2,
             "username": "Bee Yin Low",
-            "password": "password",
+            "password": "user",
             "email": "user@example.com",
             "isAdmin": false
         }
