@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Paytone_One, Lexend } from "next/font/google";
 import ThemeProvider from "./providers";
 import "./globals.css";
-import Header from "./components/Header";
-import { redirect } from "next/navigation";
 
 const payton = Paytone_One({
   subsets: ["latin"],
