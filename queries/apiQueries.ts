@@ -36,6 +36,19 @@ export const getAllRecipesData = async () => {
     const result = await res.json();
     return result;
   };
+
+  export const UpdateRecipe = async (data: any) =>  {
+    const res = await fetch('/api/recipes', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  
+    const result = await res.json();
+    return result;
+  };
 /**
  * Fetches a specific recipe from the API.
  * 
