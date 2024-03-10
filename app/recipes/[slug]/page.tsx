@@ -108,7 +108,7 @@ function Page({ params }: { params: { slug: string } }) {
                 </div>
               </div>
               <div className=" flex flex-col gap-4 ">
-                <div className="font-payton text-2xl md:text-[4rem] transition-all duration-300 ease-in-out">
+                <div className="font-payton text-2xl md:text-[4rem] md:leading-[3rem] transition-all duration-300 ease-in-out">
                   {datapi?.name}
                 </div>
                 <div className="flex justify-between items-end">
