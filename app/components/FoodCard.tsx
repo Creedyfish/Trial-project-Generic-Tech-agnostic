@@ -26,7 +26,8 @@ function FoodCard({ name, image }: Props) {
         />
       </div>
       <div className="font-lexend w-full font-semibold text-sm md:text-xl items-start border-l-4 border-secondary">
-        <div className="px-2">{name}</div> // The name prop is displayed here
+        {/* The name prop is displayed here */}
+        <div className="px-2">{name}</div>
       </div>
     </div>
   );
