@@ -52,6 +52,7 @@ function Page({ params }: { params: { slug: string } }) {
         setIsOpen={setDeleteIsOpen}
         setDeleteIsOpen={setFeedBackIsOpen}
         name={datapi?.name}
+        id={datapi?.id}
       />
       <DeleteFeedbackModal
         open={feedBackIsOpen}
