@@ -3,7 +3,8 @@ import data from '@/data.json'
 
 export async function GET(req: Request, res: NextResponse) {
     try {
-    return NextResponse.json(data);
+      const recipes = data.recipes
+    return NextResponse.json(recipes);
   } catch (error) {
     return NextResponse.json(error);
   }
