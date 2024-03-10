@@ -9,15 +9,17 @@ import { NextResponse,NextRequest } from "next/server"; // Next.js server respon
 import data from '@/data.json' // Importing data from a JSON file
 
 /**
- * Handles POST requests.
- * 
- * @async
- * @function
- * @param {NextRequest} req - The incoming request object.
- * @returns {NextResponse} - Returns a NextResponse object with a JSON payload.
- * 
- * On success, it returns a JSON object with a message "Logged In" and a status code of 201.
- * On failure, it returns a JSON object with the error.
+ * This function handles POST requests.
+ * It expects the request body to contain an email and password.
+ * It checks if a user with the provided email exists in the data.
+ * If the user exists, it checks if the provided password matches the user's password.
+ * If the email and password are valid, it returns a response with the user's data.
+ * If the email or password is not valid, it returns a response with an error message and a status code of 401 or 404.
+ * If an error occurs during the execution of the function, it returns a response with the error.
+ *
+ * @param req - The request object. Expected to contain a JSON body with an email and password.
+ * @param res - The response object. Used to send a response to the client.
+ * @returns A Promise that resolves to a NextResponse object.
  */
 export const POST = async (req: NextRequest, res: NextResponse) => {
     try {
@@ -34,10 +36,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             return NextResponse.json({ data: {isAdmin:false} }, {status: 401})
         }
 
-        // if (user.isAdmin === true){
-        //     return NextResponse.json({data:user}, {status: 201})
-        // }
-        console.log
+        
 
         return NextResponse.json({ data:user }, {status: 201})
     } catch (error) {
