@@ -1,7 +1,6 @@
-import { API_URL } from "@/utils/constants";
-import path from "path";
 
-export const getUserData = async () => {
+
+export const getAllRecipesData = async () => {
     const res = await fetch(`/api`, {
       method: "GET",
       cache: "no-cache",
