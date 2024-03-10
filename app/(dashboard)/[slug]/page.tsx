@@ -40,9 +40,6 @@ function Page({ params }: { params: { slug: string } }) {
     fetchData();
   }, []);
 
-  const recipe = data.recipes.find(
-    (recipe) => recipe.name === params.slug.replace(/-/g, " ")
-  );
   const user = data.users.find((user) => user.id === datapi?.user_id);
 
   return (
