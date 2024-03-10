@@ -8,7 +8,7 @@ Clone and Install my-project with npm
 
 ```bash
   git clone https://github.com/Creedyfish/Trial-project-Generic-Tech-agnostic.git
-  cd my-project
+  cd Trial-project-Generic-Tech-agnostic
   npm install
 ```
 
