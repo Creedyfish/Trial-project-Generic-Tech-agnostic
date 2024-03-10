@@ -122,26 +122,36 @@ function Page() {
                 </div>
               </label>
 
-              <label className=" flex text-base  gap-2 text-primary dark:text-light-0">
-                <input
-                  type="checkbox"
-                  className=" accent-primary text-primary  dark:text-light-0"
-                  {...register("agreeToTerms", {
-                    required: "You must agree to the Terms and Conditions",
-                  })}
-                />
-                I agree to the Terms and Conditions
+              <label className=" flex flex-col text-base  gap-1 text-primary dark:text-light-0">
+                <div className="flex gap-2">
+                  <input
+                    type="checkbox"
+                    className=" accent-primary text-primary  dark:text-light-0"
+                    {...register("agreeToTerms", {
+                      required: "You must agree to the Terms and Conditions",
+                    })}
+                  />
+                  I agree to the Terms and Conditions
+                </div>
+                <div className="text-xs text-red-error">
+                  {errors.agreeToTerms?.message}
+                </div>
               </label>
 
-              <label className=" flex text-base  gap-2 text-primary dark:text-light-0">
-                <input
-                  type="checkbox"
-                  className=" accent-primary text-primary dark:text-light-0 border border-red-500"
-                  {...register("agreeToPrivacyPolicy", {
-                    required: "You must agree to the Privacy Policy",
-                  })}
-                />
-                I agree to the Privacy Policy
+              <label className=" flex flex-col text-base  gap-1 text-primary dark:text-light-0">
+                <div className="flex gap-2">
+                  <input
+                    type="checkbox"
+                    className=" accent-primary text-primary dark:text-light-0 border border-red-500"
+                    {...register("agreeToPrivacyPolicy", {
+                      required: "You must agree to the Privacy Policy",
+                    })}
+                  />
+                  I agree to the Privacy Policy
+                </div>
+                <div className="text-xs text-red-error">
+                  {errors.agreeToPrivacyPolicy?.message}
+                </div>
               </label>
 
               <button
