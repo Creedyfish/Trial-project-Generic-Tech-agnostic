@@ -8,6 +8,8 @@ import data from "@/data.json";
 import Link from "next/link";
 import { getAllRecipesData, signUp } from "@/queries/apiQueries";
 import { useRouter } from "next/navigation";
+import CardList from "./components/CardList";
+import Pagination from "./components/Pagination";
 
 interface Recipe {
   name: string;
@@ -19,6 +21,8 @@ interface Recipe {
 export default function Home() {
   const router = useRouter();
   const [active, setActive] = useState("owner");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardsPerPage, setCardsPerPage] = useState(16);
   const [datapi, setDatapi] = useState<Recipe[] | undefined>();
   const [filteredData, setFilteredData] = useState<Recipe[] | undefined>();
 
@@ -52,7 +56,12 @@ export default function Home() {
 
     filterData();
   }, [datapi, active]);
-  console.log(filteredData);
+
+  const lastCardIndex = currentPage * cardsPerPage;
+  const firstCardIndex = lastCardIndex - cardsPerPage;
+  const currentCards = filteredData?.slice(firstCardIndex, lastCardIndex);
+
+  console.log(currentPage);
   return (
     <>
       <div className="absolute hidden h-full top-0 -z-50 md:visible md:flex w-full justify-center items-start transition-all duration-300 ease-in-out">
@@ -84,7 +93,9 @@ export default function Home() {
                     ? "bg-primary"
                     : "bg-light-0 dark:bg-dark-0 text-gray-cooky"
                 }`}
-                onClick={() => setActive("owner")}
+                onClick={() => {
+                  setActive("owner");
+                }}
               >
                 Own Recipes
               </button>
@@ -94,7 +105,9 @@ export default function Home() {
                     ? "bg-primary"
                     : "bg-light-0 dark:bg-dark-0 text-gray-cooky"
                 } `}
-                onClick={() => setActive("other")}
+                onClick={() => {
+                  setActive("other");
+                }}
               >
                 Other&apos;s Recipes
               </button>
@@ -111,7 +124,7 @@ export default function Home() {
             </button>
           </div>
           <div className="items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-y-10 md:gap-x-5  transition-all duration-300 ease-in-out">
-            {filteredData?.map((recipe, key) => (
+            {/* {filteredData?.map((recipe, key) => (
               <>
                 <Link
                   href={`${
@@ -123,7 +136,9 @@ export default function Home() {
                   <FoodCard name={recipe.name} image={recipe.main_image} />
                 </Link>
               </>
-            ))}
+            ))} */}
+            <CardList data={currentCards} active={active} />
+
             <div className="flex justify-center items-center md:hidden">
               <div className="flex w-[20.3125rem] h-[9.5rem]  flex-col justify-center items-center gap-2">
                 <div className="flex md:hidden h-full w-full justify-center items-center font-lexend text-xs text-primary">
@@ -133,7 +148,11 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden md:flex h-full w-full justify-end items-center">
-            <div>pagination</div>
+            <Pagination
+              itemsPerPage={cardsPerPage}
+              totalItems={filteredData?.length}
+              paginate={setCurrentPage}
+            />
           </div>
         </div>
 
