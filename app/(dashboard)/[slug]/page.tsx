@@ -56,7 +56,10 @@ function Page({ params }: { params: { slug: string } }) {
   }, []);
 
   const user = data.users.find((user) => user.id === datapi?.user_id);
-  const role = localStorage.getItem("user");
+  let role = null;
+  if (typeof window !== "undefined") {
+    role = localStorage.getItem("user");
+  }
   return (
     <>
       <DeleteModal

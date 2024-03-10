@@ -130,7 +130,7 @@ function Page({ params }: { params: { slug: string } }) {
         <Loading />
       ) : (
         <div className="w-full h-full flex justify-center relative">
-          <div className="absolute -z-10 h-full w-full">
+          <div className="absolute z-0 h-full w-full">
             <div className="absolute h-full w-full bg-gradient-to-r dark:from-dark-0 from-light-0 md:from-70% lg:from-60%  to-transparent transition-all duration-300 ease-in-out"></div>
             <div className="flex w-full h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out">
               <div className="md:w-2/3 lg:w-2/5 h-full bg-light-0 dark:bg-dark-0 transition-all duration-300 ease-in-out"></div>
@@ -145,7 +145,7 @@ function Page({ params }: { params: { slug: string } }) {
             </div>
           </div>
 
-          <div className="w-full h-full flex flex-col justify-center items-center md:items-start md:px-24 md:pt-24 py-5 px-9 container transition-all duration-300 ease-in-out">
+          <div className="w-full h-full z-10 flex flex-col justify-center items-center md:items-start md:px-24 md:pt-24 py-5 px-9 container transition-all duration-300 ease-in-out">
             <div className="w-full h-full md:w-2/3 lg:w-3/5 xl:w-1/2  transition-all duration-300 ease-in-out">
               <div className="flex flex-col gap-10 h-full w-full ">
                 <Link
