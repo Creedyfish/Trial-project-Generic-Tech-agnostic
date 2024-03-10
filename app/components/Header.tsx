@@ -63,6 +63,11 @@ function Settings() {
     setMounted(true);
   }, []);
 
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    router.push("/login");
+  };
+
   if (!mounted) {
     return null;
   }
@@ -98,7 +103,7 @@ function Settings() {
         )}
 
         <button
-          onClick={() => router.push("/login")}
+          onClick={() => logoutHandler()}
           className="flex gap-1 items-center text-sm"
         >
           <div>
