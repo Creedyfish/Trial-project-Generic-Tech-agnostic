@@ -317,7 +317,7 @@ function Page({ params }: { params: { slug: string } }) {
                     <button
                       type="button"
                       onClick={() => setCancelIsOpen(true)}
-                      className="w-full md:w-auto text-light-0 font-lexend text-sm md:text-base px-4 py-2  rounded-full"
+                      className="w-full md:w-auto text-dark-0 dark:text-light-0 font-lexend text-sm md:text-base px-4 py-2  rounded-full"
                     >
                       Cancel Edit
                     </button>
