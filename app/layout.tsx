@@ -33,7 +33,6 @@ export default function RootLayout({
         className={`${lexend.variable} ${payton.variable} dark:bg-dark-0 h-full min-w-[375px]`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
           {children}
         </ThemeProvider>
       </body>
