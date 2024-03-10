@@ -14,9 +14,18 @@ function Page() {
   const { register, control, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
+      console.log(data);
       const response = await login(data);
 
-      console.log({ data: data, response });
+      console.log({ response });
+
+      if (response.data.isAdmin) {
+        localStorage.setItem("user", "admin");
+      } else {
+        localStorage.setItem("user", "user");
+      }
+
+      console.log(localStorage.getItem("user"));
       router.push("/");
 
       // Handle successful login
