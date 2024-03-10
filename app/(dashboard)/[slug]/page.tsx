@@ -41,7 +41,7 @@ function Page({ params }: { params: { slug: string } }) {
   }, []);
 
   const user = data.users.find((user) => user.id === datapi?.user_id);
-
+  const role = localStorage.getItem("user");
   return (
     <>
       <DeleteModal
@@ -78,34 +78,36 @@ function Page({ params }: { params: { slug: string } }) {
                   />
                   <div>Back to Feed</div>
                 </Link>
-                <div className="flex md:hidden items-center">
-                  <div className="gap-3 flex font-lexend text-base">
-                    <Link
-                      href={`/recipe/edit/${params.slug}`}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
-                    >
-                      <Image
-                        src={`/pen.svg`}
-                        width={16}
-                        height={16}
-                        alt={`pen`}
-                        loading="lazy"
-                      />
-                    </Link>
-                    <button
-                      onClick={() => setDeleteIsOpen(true)}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
-                    >
-                      <Image
-                        src={`/trash.svg`}
-                        width={16}
-                        height={16}
-                        alt={`trash`}
-                        loading="lazy"
-                      />
-                    </button>
+                {role === "admin" ? (
+                  <div className="flex md:hidden items-center">
+                    <div className="gap-3 flex font-lexend text-base">
+                      <Link
+                        href={`/recipe/edit/${params.slug}`}
+                        className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                      >
+                        <Image
+                          src={`/pen.svg`}
+                          width={16}
+                          height={16}
+                          alt={`pen`}
+                          loading="lazy"
+                        />
+                      </Link>
+                      <button
+                        onClick={() => setDeleteIsOpen(true)}
+                        className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
+                      >
+                        <Image
+                          src={`/trash.svg`}
+                          width={16}
+                          height={16}
+                          alt={`trash`}
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
               <div className=" flex flex-col gap-4 ">
                 <div className="flex flex-col ">
@@ -140,34 +142,36 @@ function Page({ params }: { params: { slug: string } }) {
                       <div>{datapi?.prep_time} Minutes</div>
                     </div>
                   </div>
-                  <div className="gap-5 hidden md:flex font-lexend text-base">
-                    <Link
-                      href={`/recipe/edit/${params.slug}`}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
-                    >
-                      <div>Edit</div>
-                      <Image
-                        src={`/pen.svg`}
-                        width={16}
-                        height={16}
-                        alt={`pen`}
-                        loading="lazy"
-                      />
-                    </Link>
-                    <button
-                      onClick={() => setDeleteIsOpen(true)}
-                      className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
-                    >
-                      <div>Delete</div>
-                      <Image
-                        src={`/trash.svg`}
-                        width={16}
-                        height={16}
-                        alt={`trash`}
-                        loading="lazy"
-                      />
-                    </button>
-                  </div>
+                  {role === "admin" ? (
+                    <div className="gap-5 hidden md:flex font-lexend text-base">
+                      <Link
+                        href={`/recipe/edit/${params.slug}`}
+                        className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-light-0 text-light-0"
+                      >
+                        <div>Edit</div>
+                        <Image
+                          src={`/pen.svg`}
+                          width={16}
+                          height={16}
+                          alt={`pen`}
+                          loading="lazy"
+                        />
+                      </Link>
+                      <button
+                        onClick={() => setDeleteIsOpen(true)}
+                        className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
+                      >
+                        <div>Delete</div>
+                        <Image
+                          src={`/trash.svg`}
+                          width={16}
+                          height={16}
+                          alt={`trash`}
+                          loading="lazy"
+                        />
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
