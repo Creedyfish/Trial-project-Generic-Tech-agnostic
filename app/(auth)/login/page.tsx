@@ -5,19 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { login } from "@/queries/apiQueries";
 import { useRouter } from "next/navigation";
+/**
+ * Type definition for the form inputs.
+ * The form expects an email and a password, both of which are strings.
+ */
 type Inputs = {
   email: string;
   password: string;
 };
+/**
+ * This function component represents a page where a user can log in.
+ * It uses the `useForm` hook from `react-hook-form` to handle form state and submission.
+ * When the form is submitted, it attempts to log in with the provided email and password.
+ * If the login is successful and the user is an admin, it stores "admin" in local storage.
+ * If the user is not an admin, it stores "user" in local storage.
+ * After successful login, it redirects the user to the home page.
+ * If the login fails, it logs the error to the console.
+ */
 function Page() {
   const router = useRouter();
   const { register, control, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      console.log(data);
       const response = await login(data);
-
-      console.log({ response });
 
       if (response.data.isAdmin) {
         localStorage.setItem("user", "admin");
@@ -25,7 +35,6 @@ function Page() {
         localStorage.setItem("user", "user");
       }
 
-      console.log(localStorage.getItem("user"));
       router.push("/");
 
       // Handle successful login
@@ -118,19 +127,6 @@ function Page() {
           </div>
         </div>
       </div>
-
-      {/* <div className="absolute hidden md:flex w-full h-full bg-gradient-to-r from-red-500 from-10% to-transparent ">
-        <div className="hidden -z-10 absolute md:flex w-full h-full bg-no-repeat bg-right bg-login-bg "></div>
-      </div> */}
-
-      {/* <div className="hidden absolute md:flex w-full h-full">
-        <Image
-          src={"/login-image.png"}
-          width={4000}
-          height={2000}
-          alt="sdasd"
-        />
-      </div> */}
     </div>
   );
 }
