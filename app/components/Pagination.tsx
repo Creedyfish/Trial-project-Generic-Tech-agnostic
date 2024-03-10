@@ -62,7 +62,7 @@ const Pagination: React.FC<PaginationProps> = ({
      * @component
      **/
     <nav className=" flex">
-      <div className="pagination flex items-center justify-center gap-5">
+      <div className="pagination text-dark-0 dark:text-light-0 flex items-center justify-center gap-5">
         <button
           className="flex justify-center items-center"
           onClick={() => {
@@ -92,9 +92,9 @@ const Pagination: React.FC<PaginationProps> = ({
             key={number}
             className={`page-item flex justify-center items-center ${
               currentPage === number
-                ? "bg-red-500"
+                ? "bg-red-500 text-light-0"
                 : "bg-light-0 dark:bg-dark-0"
-            } font-lexend w-5 h-5 py-1 px-2 text-sm rounded-full`}
+            } font-lexend w-5 h-5 py-1 px-2 text-sm rounded-full transition-all duration-300 ease-in-out`}
             onClick={() => handleClick(number)}
           >
             <div>{number}</div>
