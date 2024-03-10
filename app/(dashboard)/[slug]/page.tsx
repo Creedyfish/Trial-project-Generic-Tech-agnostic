@@ -8,7 +8,12 @@ import { useState, useEffect } from "react";
 
 import { getRecipe } from "@/queries/apiQueries";
 import Loading from "../../Loading";
-
+/**
+ * Type definition for a recipe.
+ * A recipe has an id, ingredients, main_image, name, prep_time, procedure, servings, and user_id.
+ * The id, prep_time, servings, and user_id are numbers.
+ * The ingredients, main_image, name, and procedure are strings.
+ */
 type Recipe = {
   id: number;
   ingredients: string;
@@ -19,7 +24,17 @@ type Recipe = {
   servings: number;
   user_id: number;
 };
-
+/**
+ * This function component represents a page where a recipe is displayed.
+ * It uses the `useState` hook to manage state for the delete confirmation, feedback form, recipe data, and loading state.
+ * It uses the `useEffect` hook to fetch the recipe data when the component mounts.
+ * The recipe data is fetched using the `getRecipe` function with the slug from the params.
+ * If the fetch is successful, it sets the recipe data and sets loading to false.
+ * If the fetch fails, it logs the error to the console.
+ * It also finds the user who created the recipe and gets the role of the current user from local storage.
+ *
+ * @param params - The parameters for the page. Expected to contain a slug for the recipe.
+ */
 function Page({ params }: { params: { slug: string } }) {
   const [deleteIsOpen, setDeleteIsOpen] = useState(false);
   const [feedBackIsOpen, setFeedBackIsOpen] = useState(false);

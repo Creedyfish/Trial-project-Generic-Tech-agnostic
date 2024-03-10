@@ -15,7 +15,13 @@ import { useState } from "react";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import { addRecipe } from "@/queries/apiQueries";
-
+/**
+ * Type definition for the form inputs.
+ * The form expects a name, prep_time, servings, main_image, ingredients, and procedures.
+ * The name, ingredients, and procedures are strings.
+ * The prep_time and servings are numbers.
+ * The main_image is of any type.
+ */
 type Inputs = {
   name: string;
   prep_time: number;
@@ -24,7 +30,14 @@ type Inputs = {
   ingredients: string;
   procedures: string;
 };
-
+/**
+ * This function component represents a page where a user can add a recipe.
+ * It uses the `useForm` hook from `react-hook-form` to handle form state and submission.
+ * It also uses the `useState` hook to manage state for the file name and a boolean value indicating whether a modal is open.
+ * When the form is submitted, it attempts to add a recipe with the provided data.
+ * If the recipe is added successfully, it logs the data and the response to the console and opens a modal.
+ * If the recipe fails to be added, it logs the error to the console.
+ */
 function Page() {
   const { register, control, handleSubmit, setValue, watch, formState } =
     useForm<Inputs>();
@@ -39,12 +52,8 @@ function Page() {
 
       console.log({ data: data, response });
       setIsOpen(true);
-
-      // Handle successful login
     } catch (error) {
       console.error(error);
-
-      // Handle failed login
     }
   };
 
@@ -144,13 +153,6 @@ function Page() {
                         className="w-full px-4 py-[0.625rem] text-base rounded-full outline-none bg-bg-input dark:bg-dark-1"
                         type="text"
                         value={cfileName}
-                        // {...register("main_image", {
-                        //   required: "Image is required",
-                        //   pattern: {
-                        //     value: /^https?:\/\/.*$|.*\.(jpeg|jpg|gif|png)$/,
-                        //     message: "Invalid image format",
-                        //   },
-                        // })}
                         onChange={(event) => {
                           setCFileName(event.target.value);
                           setValue("main_image", event.target.value);

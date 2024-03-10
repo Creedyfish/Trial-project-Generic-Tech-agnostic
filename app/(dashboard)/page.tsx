@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAllRecipesData, signUp } from "@/queries/apiQueries";
@@ -8,23 +7,40 @@ import { useRouter } from "next/navigation";
 import CardList from "../components/CardList";
 import Pagination from "../components/Pagination";
 import Loading from "../Loading";
-
+/**
+ * Interface for a Recipe.
+ * @interface Recipe
+ * @property {string} name - The name of the recipe.
+ * @property {string} main_image - The main image URL for the recipe.
+ * @property {number} user_id - The unique identifier of the user who created the recipe.
+ */
 interface Recipe {
   name: string;
   main_image: string;
   user_id: number;
-  // Add other properties as needed
 }
-
+/**
+ * The Home component that displays a list of recipes.
+ * It fetches all recipes data and filters them based on the active state.
+ * It also handles pagination of the recipe cards.
+ */
 export default function Home() {
+  // Router instance for navigation.
   const router = useRouter();
+  // State for managing the active filter.
   const [active, setActive] = useState("owner");
+  // State for managing the current page of the pagination.
   const [currentPage, setCurrentPage] = useState(1);
+  // State for managing the number of cards per page in the pagination.
   const [cardsPerPage, setCardsPerPage] = useState(16);
+  // State for storing the fetched recipes data.
   const [datapi, setDatapi] = useState<Recipe[] | undefined>();
+  // State for storing the filtered recipes data.
   const [filteredData, setFilteredData] = useState<Recipe[] | undefined>();
+  // State for managing the loading state of the component.
   const [isLoading, setIsLoading] = useState(true);
 
+  // Effect for fetching the recipes data on component mount.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,7 +54,7 @@ export default function Home() {
 
     fetchData();
   }, []);
-
+  // Effect for filtering the recipes data when the datapi or active state changes.
   useEffect(() => {
     const filterData = async () => {
       try {
@@ -56,9 +72,10 @@ export default function Home() {
 
     filterData();
   }, [datapi, active]);
-
+  // Calculating the indices for slicing the filteredData array for pagination.
   const lastCardIndex = currentPage * cardsPerPage;
   const firstCardIndex = lastCardIndex - cardsPerPage;
+  // The current page's cards data.
   const currentCards = filteredData?.slice(firstCardIndex, lastCardIndex);
 
   return (

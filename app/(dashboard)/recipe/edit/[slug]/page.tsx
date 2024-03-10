@@ -16,7 +16,12 @@ import { useState, useEffect } from "react";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import { UpdateRecipe, getRecipe } from "@/queries/apiQueries";
-
+/**
+ * Type definition for a recipe.
+ * A recipe has an id, ingredients, main_image, name, prep_time, procedure, servings, and user_id.
+ * The id, prep_time, servings, and user_id are numbers.
+ * The ingredients, main_image, name, and procedure are strings.
+ */
 type Recipe = {
   id: number;
   ingredients: string;
@@ -27,7 +32,13 @@ type Recipe = {
   servings: number;
   user_id: number;
 };
-
+/**
+ * Type definition for the form inputs.
+ * The form expects a name, prep_time, servings, main_image, ingredients, and procedures.
+ * The name, ingredients, and procedures are strings.
+ * The prep_time and servings are numbers.
+ * The main_image is of any type.
+ */
 type Inputs = {
   name: string;
   prep_time: number;
@@ -36,7 +47,31 @@ type Inputs = {
   ingredients: string;
   procedures: string;
 };
-
+/**
+ * `Page` is a functional component that takes a `params` object as a prop.
+ * The `params` object contains a `slug` property which is a string.
+ *
+ * The component uses the `useForm` hook from `react-hook-form` to manage the form state.
+ * The `register`, `control`, `handleSubmit`, `setValue`, `watch`, and `formState` methods are destructured from the `useForm` hook.
+ * The `errors` object is destructured from `formState` to handle form validation errors.
+ *
+ * The component uses the `useState` hook to manage the state of various variables:
+ * - `cfileName`: the name of the file
+ * - `isSuccessOpen`: a boolean indicating whether the success modal is open
+ * - `isCancelOpen`: a boolean indicating whether the cancel modal is open
+ * - `datapi`: the recipe data
+ * - `isLoading`: a boolean indicating whether the page is loading
+ *
+ * The `useEffect` hook is used to fetch the recipe data when the component mounts.
+ * The `fetchData` function is defined inside the `useEffect` hook. It is an asynchronous function that fetches the recipe data using the `getRecipe` function and the `slug` from the `params` prop.
+ * If the data is fetched successfully, it is set to `datapi` and `isLoading` is set to `false`. The values of the form fields are also set using the `setValue` function.
+ * If there is an error while fetching the data, it is logged to the console.
+ *
+ * The `onSubmit` function is an asynchronous function that is used as the submit handler for the form.
+ * It attempts to update the recipe using the `UpdateRecipe` function and the data from the form.
+ * If the recipe is updated successfully, the data and the response are logged to the console and the success modal is opened.
+ * If there is an error while updating the recipe, it is logged to the console.
+ */
 function Page({ params }: { params: { slug: string } }) {
   const { register, control, handleSubmit, setValue, watch, formState } =
     useForm<Inputs>();

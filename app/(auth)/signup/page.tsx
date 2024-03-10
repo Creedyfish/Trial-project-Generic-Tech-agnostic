@@ -1,11 +1,16 @@
 "use client";
-
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signUp } from "@/queries/apiQueries";
+/**
+ * Type definition for the form inputs.
+ * The form expects a name, email, password, repeatPassword, agreeToTerms, and agreeToPrivacyPolicy.
+ * The name, email, password, and repeatPassword are strings.
+ * The agreeToTerms and agreeToPrivacyPolicy are booleans.
+ */
 type Inputs = {
   name: string;
   email: string;
@@ -14,6 +19,13 @@ type Inputs = {
   agreeToTerms: boolean;
   agreeToPrivacyPolicy: boolean;
 };
+/**
+ * This function component represents a page where a user can sign up.
+ * It uses the `useForm` hook from `react-hook-form` to handle form state and submission.
+ * When the form is submitted, it attempts to sign up with the provided data.
+ * If the sign up is successful, it logs the data and the response to the console and redirects the user to the home page.
+ * If the sign up fails, it logs the error to the console.
+ */
 function Page() {
   const router = useRouter();
   const { register, control, watch, handleSubmit, formState } =
@@ -25,11 +37,11 @@ function Page() {
 
       console.log({ data: data, response });
       router.push("/");
-      // Handle successful login
+      // Handle successful Signin
     } catch (error) {
       console.error(error);
 
-      // Handle failed login
+      // Handle failed Signin
     }
   };
   return (

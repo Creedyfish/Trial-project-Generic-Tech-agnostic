@@ -7,6 +7,18 @@ import { DeleteModal, DeleteFeedbackModal } from "@/app/components/Modals";
 import { useState, useEffect } from "react";
 import { getRecipe } from "@/queries/apiQueries";
 import Loading from "@/app/Loading";
+/**
+ * Type definition for a Recipe.
+ * @typedef {Object} Recipe
+ * @property {number} id - The unique identifier for the recipe.
+ * @property {string} ingredients - The ingredients required for the recipe.
+ * @property {string} main_image - The main image URL for the recipe.
+ * @property {string} name - The name of the recipe.
+ * @property {number} prep_time - The preparation time for the recipe in minutes.
+ * @property {string} procedure - The procedure to prepare the recipe.
+ * @property {number} servings - The number of servings the recipe makes.
+ * @property {number} user_id - The unique identifier of the user who created the recipe.
+ */
 type Recipe = {
   id: number;
   ingredients: string;
@@ -17,13 +29,26 @@ type Recipe = {
   servings: number;
   user_id: number;
 };
-
+/**
+ * Page component that displays a specific recipe.
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.params - The parameters passed to the component.
+ * @param {string} props.params.slug - The slug of the recipe to display.
+ */
 function Page({ params }: { params: { slug: string } }) {
+  // State for managing the visibility of the delete modal.
   const [deleteIsOpen, setDeleteIsOpen] = useState(false);
+
+  // State for managing the visibility of the feedback modal.
   const [feedBackIsOpen, setFeedBackIsOpen] = useState(false);
+
+  // State for storing the recipe data.
   const [datapi, setDatapi] = useState<Recipe | null>(null);
+
+  // State for managing the loading state of the component.
   const [isLoading, setIsLoading] = useState(true);
 
+  // Effect for fetching the recipe data on component mount.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +62,7 @@ function Page({ params }: { params: { slug: string } }) {
 
     fetchData();
   }, []);
-
+  // Handler for opening the delete modal.
   const deleteHandler = async () => {
     setDeleteIsOpen(true);
   };
