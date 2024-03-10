@@ -18,7 +18,7 @@ const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false);
 
   // Use the useTheme hook to get the current theme and a function to set the theme
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   // Use an effect to set the mounted state to true after the component has mounted
   useEffect(() => {
@@ -33,7 +33,7 @@ const ThemeSwitcher = () => {
   // Render the current theme and buttons to switch to light or dark theme
   return (
     <div>
-      The current theme is: {theme}
+      The current theme is: {resolvedTheme}
       <br />
       <button onClick={() => setTheme("light")}>Light Mode</button>
       <br />

@@ -1,12 +1,51 @@
-@tailwind base;
+
+/**
+ * Global CSS styles.
+ * 
+ * @import Tailwind CSS components and utilities.
+ * 
+ * Sets the width of the html and body elements to 100%.
+ * 
+ * Defines custom styles for the scrollbar:
+ * - Sets the width and height of the scrollbar to 40px.
+ * - Sets the border-radius of the scrollbar track to 100vh and its background color to red.
+ * - Sets the background color of the scrollbar thumb to #e0cbcb, its border-radius to 100vh, and its border to 3px solid #f6f7ed.
+ * - Changes the background color of the scrollbar thumb to #c0a0b9 when hovered.
+ * 
+ * Defines custom styles for checkboxes:
+ * - Sets the border style to solid.
+ * - Sets the border color to red.
+ * - Sets the border width to 2px.
+ */@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 html, body{
   width: 100%;
  
 }
 
+/**
+ * Defines custom styles for the scrollbar within the utilities layer.
+ * 
+ * @layer utilities
+ * 
+ * .scrollbar::-webkit-scrollbar:
+ * - Sets the width and height of the scrollbar to 40px.
+ * 
+ * .scrollbar::-webkit-scrollbar-track:
+ * - Sets the border-radius of the scrollbar track to 100vh.
+ * - Sets the background color of the scrollbar track to red.
+ * 
+ * .scrollbar::-webkit-scrollbar-thumb:
+ * - Sets the background color of the scrollbar thumb to #e0cbcb.
+ * - Sets the border-radius of the scrollbar thumb to 100vh.
+ * - Sets the border of the scrollbar thumb to 3px solid #f6f7ed.
+ * 
+ * .scrollbar::-webkit-scrollbar-thumb:hover:
+ * - Changes the background color of the scrollbar thumb to #c0a0b9 when hovered.
+ */
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
     width: 40px;
@@ -28,13 +67,33 @@ html, body{
     background: #c0a0b9;
   }
 }
+/**
+ * input[type="checkbox"]:
+ * - Sets the border style to solid.
+ * - Sets the border color to red.
+ * - Sets the border width to 2px.
+ * 
+ * .ingredients ul, .ingredients li:
+ * - Sets the list-style-position to inside.
+ * - Sets the list-style-type to disc.
+ * - Applies several utility classes for text size, padding, and transition.
+ * 
+ * .ingredients span:
+ * - Applies several utility classes for text size and transition.
+ * 
+ * .ql-container.ql-snow, .ql-toolbar.ql-snow:
+ * - Sets the border to none.
+ * 
+ * input[type='file']:
+ * - Sets the color to transparent.
+ * - Sets the visibility to hidden.
+ */
 
 input[type="checkbox"] {
   border-style: solid; /* Solid outline style */
   border-color: red;  /* Red color for the outline */
   border-width: 2px;
 }
-
 
 .ingredients ul, .ingredients li {
   list-style-position: inside;
@@ -50,28 +109,31 @@ input[type="checkbox"] {
 .ql-container.ql-snow,.ql-toolbar.ql-snow {
 
   border: none!important;
-  /* border-width: 2px !important;
-  border-style: solid !important;
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(220 38 38 / var(--tw-border-opacity)) !important; */
+  
 }
-
-
 
 input[type='file'] {
   color: transparent;
   visibility: hidden;
 }
-/* .ql-container.ql-snow {
-  @apply border-red-600 border-solid border-2
-} */
+
+/**
+ * Defines custom styles for Quill editor and toolbar.
+ * 
+ * .ql-container, .ql-editor:
+ * - Applies several utility classes for minimum and maximum height, border, border radius, background color, text size, and font.
+ * 
+ * .ql-toolbar .ql-picker-label, .ql-toolbar .ql-bold, .ql-toolbar .ql-italic, .ql-toolbar .ql-underline, .ql-toolbar .ql-stroke, .ql-toolbar .ql-blockquote:
+ * - Applies utility classes for text and stroke color in dark mode.
+ * 
+ * .ql-toolbar .ql-picker-item:
+ * - Applies utility classes for text and stroke color in dark mode.
+ */
 .ql-container,.ql-editor{
   
   @apply min-h-[13rem] max-h-[13rem] md:max-h-[27rem] md:min-h-[27rem] border-none border-red-600 border-0 rounded-3xl bg-bg-input dark:bg-dark-1 text-base font-lexend
   
 }
-
-
 
 .ql-toolbar .ql-picker-label,
 .ql-toolbar .ql-bold,

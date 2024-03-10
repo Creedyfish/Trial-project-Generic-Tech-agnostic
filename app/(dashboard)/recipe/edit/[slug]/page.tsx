@@ -131,7 +131,7 @@ function Page({ params }: { params: { slug: string } }) {
                   <div>Back to Feed</div>
                 </Link>
                 <div className="font-payton text-[2rem] hidden md:flex leading-[2.5rem] text-primary">
-                  New Recipe
+                  Edit {datapi?.name}
                 </div>
                 <form
                   className="flex flex-col gap-6 w-full font-lexend"
@@ -296,8 +296,6 @@ function Page({ params }: { params: { slug: string } }) {
                     </button>
                   </div>
                 </form>
-
-                {/* <DevTool control={control} /> */}
               </div>
             </div>
           </div>

@@ -16,8 +16,6 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import { addRecipe } from "@/queries/apiQueries";
 
-import { DevTool } from "@hookform/devtools";
-
 type Inputs = {
   name: string;
   prep_time: number;

@@ -29,7 +29,7 @@ export async function GET(req: Request, res: NextResponse) {
     const recipe = data.recipes.find(
       (recipe) => recipe.name === slug.replace(/-/g, " ")
     );
-
+    
     return NextResponse.json(recipe);
   } catch (error) {
     return NextResponse.json(error);

@@ -57,7 +57,7 @@ function Settings() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -69,7 +69,7 @@ function Settings() {
   return (
     <div className="absolute top-20 flex w-full justify-end pointer-events-none">
       <div className="p-5 gap-5 flex flex-col bg-light-0 dark:bg-dark-0 rounded-lg pointer-events-auto">
-        {theme === "dark" ? (
+        {resolvedTheme === "dark" ? (
           <button
             onClick={() => setTheme("light")}
             className="flex gap-1 items-center text-sm"
@@ -102,7 +102,7 @@ function Settings() {
           className="flex gap-1 items-center text-sm"
         >
           <div>
-            {theme === "dark" ? (
+            {resolvedTheme === "dark" ? (
               <Image
                 src={"/sign-out-dark.svg"}
                 width={14}
