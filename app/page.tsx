@@ -6,18 +6,26 @@ import { useEffect, useState } from "react";
 import FoodCard from "./components/FoodCard";
 import data from "@/data.json";
 import Link from "next/link";
-import { getUserData, signUp } from "@/queries/apiQueries";
+import { getAllRecipesData, signUp } from "@/queries/apiQueries";
 import { useRouter } from "next/navigation";
+
+interface Recipe {
+  name: string;
+  main_image: string;
+  user_id: number;
+  // Add other properties as needed
+}
 
 export default function Home() {
   const router = useRouter();
   const [active, setActive] = useState("owner");
-  const [datapi, setDatapi] = useState(null);
+  const [datapi, setDatapi] = useState<Recipe[] | undefined>();
+  const [filteredData, setFilteredData] = useState<Recipe[] | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await signUp("data");
+        const data = await getAllRecipesData();
         setDatapi(data);
       } catch (error) {
         console.error("Error:", error);
@@ -25,9 +33,26 @@ export default function Home() {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures this runs once on mount
+  }, []);
 
-  console.log(datapi);
+  useEffect(() => {
+    const filterData = async () => {
+      try {
+        if (active === "owner") {
+          const data = await datapi?.filter((recipe) => recipe.user_id === 1);
+          setFilteredData(data);
+        } else {
+          const data = await datapi?.filter((recipe) => recipe.user_id !== 1);
+          setFilteredData(data);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    filterData();
+  }, [datapi, active]);
+  console.log(filteredData);
   return (
     <>
       <div className="absolute hidden h-full top-0 -z-50 md:visible md:flex w-full justify-center items-start transition-all duration-300 ease-in-out">
@@ -85,30 +110,26 @@ export default function Home() {
               New Recipe
             </button>
           </div>
-          <div className="items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5">
-            {data.recipes.map((recipe, key) => (
+          <div className="items-start grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-y-10 md:gap-x-5  transition-all duration-300 ease-in-out">
+            {filteredData?.map((recipe, key) => (
               <>
                 <Link
-                  href={`/recipes/${recipe.name.replace(/\s/g, "-")}`}
+                  href={`${
+                    active === "owner" ? "/recipes" : ""
+                  }/${recipe.name.replace(/\s/g, "-")}`}
                   key={key}
-                  className="flex justify-center items-center"
+                  className="flex justify-center items-center group"
                 >
                   <FoodCard name={recipe.name} image={recipe.main_image} />
                 </Link>
-                <Link
-                  href={`/recipes/${recipe.name.replace(/\s/g, "-")}`}
-                  key={key}
-                  className="flex justify-center items-center"
-                >
-                  <FoodCard name={recipe.name} image={recipe.main_image} />
-                </Link>
-                <div key={key + 4} className="flex justify-center items-center">
-                  <FoodCard name={recipe.name} image={recipe.main_image} />
-                </div>
               </>
             ))}
-            <div className="flex md:hidden h-full w-full justify-center items-center font-lexend text-xs text-primary">
-              <div>That&apos;s all we have for now</div>
+            <div className="flex justify-center items-center md:hidden">
+              <div className="flex w-[20.3125rem] h-[9.5rem]  flex-col justify-center items-center gap-2">
+                <div className="flex md:hidden h-full w-full justify-center items-center font-lexend text-xs text-primary">
+                  <div>That&apos;s all we have for now</div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="hidden md:flex h-full w-full justify-end items-center">
@@ -129,7 +150,10 @@ export default function Home() {
               loading="lazy"
             />
           </button>
-          <div className="w-11 h-11 rounded-full bg-primary flex justify-center items-center active:scale-90 active:ring-2 dark:active:ring-light-0 active:ring-secondary transition-all duration-300 ease-out">
+          <Link
+            href={"/recipe/create"}
+            className="w-11 h-11 rounded-full bg-primary flex justify-center items-center active:scale-90 active:ring-2 dark:active:ring-light-0 active:ring-secondary transition-all duration-300 ease-out"
+          >
             <Image
               src={"/plus.svg"}
               width={15.7}
@@ -137,7 +161,7 @@ export default function Home() {
               alt={`plus`}
               loading="lazy"
             />
-          </div>
+          </Link>
         </div>
       </main>
     </>
