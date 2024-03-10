@@ -6,7 +6,7 @@ import Link from "next/link";
 import { DeleteModal, DeleteFeedbackModal } from "@/app/components/Modals";
 import { useState } from "react";
 
-function page({ params }: { params: { slug: string } }) {
+function Page({ params }: { params: { slug: string } }) {
   const [deleteIsOpen, setDeleteIsOpen] = useState(false);
   const [feedBackIsOpen, setFeedBackIsOpen] = useState(false);
 
@@ -173,4 +173,4 @@ function page({ params }: { params: { slug: string } }) {
   );
 }
 
-export default page;
+export default Page;
