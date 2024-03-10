@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Recipe Management Project - Frontend Trial
 
-## Getting Started
+This repository contains code for a trial project exploring recipe management functionalities built using the Next.js framework. This project focuses on the frontend aspects of adding, viewing, and managing recipes.
+
+## Installation
+
+Clone and Install my-project with npm
+
+```bash
+  git clone https://github.com/Creedyfish/Trial-project-Generic-Tech-agnostic.git
+  cd my-project
+  npm install
+```
+
+## Deployment
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+https://trial-project-generic-tech-agnostic.vercel.app/
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**Client:** Reactjs, Nextjs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Server:** Nodejs, Nextjs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Styling:** TailwindCSS
 
-## Deploy on Vercel
+**Deployment Platform:** Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## API Reference
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### POST Login
+
+```http
+  POST /api/auth/login
+```
+
+#### POST SignUp
+
+```http
+  POST /api/auth/signup
+```
+
+#### Get all Recipes
+
+```http
+  GET /api/
+```
+
+#### Get Recipe
+
+```http
+  GET /api/recipes/${data}
+```
+
+| Parameter | Type     | Description                         |
+| :-------- | :------- | :---------------------------------- |
+| `data`    | `string` | **Required**. Name of item to fetch |
+
+```http
+  DELETE /api/recipes/${data}
+```
+
+| Parameter | Type     | Description                          |
+| :-------- | :------- | :----------------------------------- |
+| `data`    | `string` | **Required**. Name of item to Delete |
+
+```http
+  POST /api/recipes
+```
+
+| Request | Type     | Description                      |
+| :------ | :------- | :------------------------------- |
+| `data`  | `string` | **Required**. Data to Add Recipe |
