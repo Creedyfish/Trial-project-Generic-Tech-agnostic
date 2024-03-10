@@ -2,6 +2,7 @@
 import React from "react";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
+import { deleteRecipe } from "@/queries/apiQueries";
 
 interface ModalProps {
   open: boolean;
@@ -14,6 +15,7 @@ interface NamedModalProps extends ModalProps {
 
 interface DeleteModalProps extends NamedModalProps {
   setDeleteIsOpen: (value: boolean) => void;
+  id: number | undefined;
 }
 
 function SaveSuccessModal({ open, setIsOpen, name }: NamedModalProps) {
@@ -80,7 +82,23 @@ function DeleteModal({
   setIsOpen,
   name,
   setDeleteIsOpen,
+  id,
 }: DeleteModalProps) {
+  const onDelete = async (id: number | undefined) => {
+    try {
+      const response = await deleteRecipe(id);
+
+      console.log({ data: id, response });
+      setDeleteIsOpen(true);
+
+      // Handle successful login
+    } catch (error) {
+      console.error(error);
+
+      // Handle failed login
+    }
+  };
+
   return (
     <Modal
       open={open}
@@ -94,7 +112,7 @@ function DeleteModal({
             No
           </button>
           <button
-            onClick={() => setDeleteIsOpen(true)}
+            onClick={() => onDelete(id)}
             className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0"
           >
             Yes
