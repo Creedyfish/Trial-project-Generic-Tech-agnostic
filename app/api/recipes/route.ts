@@ -53,6 +53,16 @@ export async function POST(req: Request, res: NextResponse) {
 }
 }
 
+/**
+ * This function handles PUT requests.
+ * It logs the body of the request to the console.
+ * Then, it returns a response with a message indicating that the recipe has been edited.
+ * If an error occurs during the execution of the function, it catches the error and returns a response with the error.
+ *
+ * @param req - The request object. The body of the request is logged to the console.
+ * @param res - The response object. Used to send a response to the client.
+ * @returns A Promise that resolves to a NextResponse object.
+ */
 export async function PUT(req: Request, res: NextResponse) {
   try {
     console.log(req.body)
