@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { modules, formats } from "@/utils/reactQuillModule";
 import { SaveSuccessModal } from "@/app/components/Modals";
 import {
@@ -71,7 +72,10 @@ function Page() {
         <div className="w-full h-full flex flex-col justify-center items-center md:items-start md:px-24 md:pt-24 py-5 px-9 container transition-all duration-300 ease-in-out">
           <div className="w-full h-full md:w-2/3 lg:w-3/5 xl:w-1/2  transition-all duration-300 ease-in-out">
             <div className="flex flex-col gap-10 h-full w-full ">
-              <div className="flex gap-2 items-center font-semibold font-lexend text-sm transition-all duration-100 ease-in-out text-dark-0 dark:text-light-0">
+              <Link
+                href={"/"}
+                className="flex gap-2 items-center font-semibold font-lexend text-sm transition-all duration-100 ease-in-out text-dark-0 dark:text-light-0"
+              >
                 <svg
                   width="14"
                   height="16"
@@ -82,7 +86,7 @@ function Page() {
                   <path d="M32.4297 14.5C32.4297 15.7656 31.4453 16.75 30.25 16.75H8.66406L16.0469 24.2031C16.9609 25.0469 16.9609 26.5234 16.0469 27.3672C15.625 27.7891 15.0625 28 14.5 28C13.8672 28 13.3047 27.7891 12.8828 27.3672L1.63281 16.1172C0.71875 15.2734 0.71875 13.7969 1.63281 12.9531L12.8828 1.70312C13.7266 0.789062 15.2031 0.789062 16.0469 1.70312C16.9609 2.54688 16.9609 4.02344 16.0469 4.86719L8.66406 12.25H30.25C31.4453 12.25 32.4297 13.3047 32.4297 14.5Z" />
                 </svg>
                 <div>Back to Feed</div>
-              </div>
+              </Link>
               <div className="font-payton text-[2rem] hidden md:flex leading-[2.5rem] text-primary">
                 New Recipe
               </div>
@@ -208,7 +212,7 @@ function Page() {
                         modules={modules}
                         value={field.value}
                         onChange={field.onChange}
-                        className="bg-bg-input dark:bg-dark-1"
+                        className="w-full"
                       />
                     )}
                   />
@@ -226,7 +230,7 @@ function Page() {
                         modules={modules}
                         value={field.value}
                         onChange={field.onChange}
-                        className="bg-bg-input dark:bg-dark-1 w-full "
+                        className=" w-full"
                       />
                     )}
                   />
