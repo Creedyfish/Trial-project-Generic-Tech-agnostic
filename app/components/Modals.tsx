@@ -9,7 +9,11 @@ interface ModalProps {
 }
 
 interface NamedModalProps extends ModalProps {
-  name: string;
+  name: string | undefined;
+}
+
+interface DeleteModalProps extends NamedModalProps {
+  setDeleteIsOpen: (value: boolean) => void;
 }
 
 function SaveSuccessModal({ open, setIsOpen, name }: NamedModalProps) {
@@ -71,7 +75,12 @@ function CancelModal({ open, setIsOpen }: ModalProps) {
   );
 }
 
-function DeleteModal({ open, setIsOpen, name }: NamedModalProps) {
+function DeleteModal({
+  open,
+  setIsOpen,
+  name,
+  setDeleteIsOpen,
+}: DeleteModalProps) {
   return (
     <Modal
       open={open}
@@ -84,7 +93,10 @@ function DeleteModal({ open, setIsOpen, name }: NamedModalProps) {
           >
             No
           </button>
-          <button className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0">
+          <button
+            onClick={() => setDeleteIsOpen(true)}
+            className="rounded-full px-[3.125rem] py-3 bg-primary text-light-0"
+          >
             Yes
           </button>
         </>
@@ -102,6 +114,7 @@ function DeleteModal({ open, setIsOpen, name }: NamedModalProps) {
 }
 
 function DeleteFeedbackModal({ open, setIsOpen, name }: NamedModalProps) {
+  const router = useRouter();
   return (
     <Modal
       open={open}
@@ -109,7 +122,9 @@ function DeleteFeedbackModal({ open, setIsOpen, name }: NamedModalProps) {
       buttons={
         <>
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              router.push("/");
+            }}
             className="rounded-full w-full px-[3.125rem] py-3 bg-primary text-light-0"
           >
             Yes
