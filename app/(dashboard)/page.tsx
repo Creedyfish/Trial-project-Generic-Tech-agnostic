@@ -67,7 +67,7 @@ export default function Home() {
         <Loading />
       ) : (
         <>
-          <div className="absolute hidden h-full top-0 -z-50 md:visible md:flex w-full justify-center items-start transition-all duration-300 ease-in-out">
+          <div className="absolute hidden h-full top-0 z-0 md:visible md:flex w-full justify-center items-start transition-all duration-300 ease-in-out">
             <div className="max-w-[1920px] flex w-full justify-end">
               <Image
                 src={"/knife-and-spatchula.png"}
