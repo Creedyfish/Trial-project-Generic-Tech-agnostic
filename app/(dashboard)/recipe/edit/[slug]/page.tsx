@@ -15,7 +15,7 @@ import {
 import { useState, useEffect } from "react";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
-import { addRecipe, getRecipe } from "@/queries/apiQueries";
+import { UpdateRecipe, getRecipe } from "@/queries/apiQueries";
 
 type Recipe = {
   id: number;
@@ -72,11 +72,9 @@ function Page({ params }: { params: { slug: string } }) {
     fetchData();
   }, []);
 
-  console.log(datapi);
-
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const response = await addRecipe(data);
+      const response = await UpdateRecipe(data);
 
       console.log({ data: data, response });
       setSuccessIsOpen(true);
