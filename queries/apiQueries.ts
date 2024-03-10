@@ -10,8 +10,8 @@ export const getAllRecipesData = async () => {
   return result;
   }
 
-  export const addRecipe = async (data: any) => {
-    const res = await fetch(`/api/recipes`, {
+  export const addRecipe = async (data: any) =>  {
+    const res = await fetch('/api/recipes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,11 +23,21 @@ export const getAllRecipesData = async () => {
     return result;
   };
 
-
   export const getRecipe = async (data: any) => {
   
     const res = await fetch(`/api/recipes/${data}`, {
       method: "GET",
+      cache: "no-cache",
+    });
+  
+    const result = await res.json();
+  return result;
+  }
+
+  export const deleteRecipe = async (data: any) => {
+  
+    const res = await fetch(`/api/recipes/${data}`, {
+      method: "DELETE",
       cache: "no-cache",
     });
   
