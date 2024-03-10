@@ -35,7 +35,6 @@ function Page() {
     try {
       const response = await signUp(data);
 
-      console.log({ data: data, response });
       router.push("/");
       // Handle successful Signin
     } catch (error) {

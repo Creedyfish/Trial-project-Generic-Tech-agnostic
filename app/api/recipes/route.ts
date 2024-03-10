@@ -46,7 +46,7 @@ export async function GET(req: Request, res: NextResponse) {
  */
 export async function POST(req: Request, res: NextResponse) {
   try {
-    console.log(req.body)
+   
   return NextResponse.json("recipe Added");
 } catch (error) {
   return NextResponse.json(error);
@@ -65,7 +65,7 @@ export async function POST(req: Request, res: NextResponse) {
  */
 export async function PUT(req: Request, res: NextResponse) {
   try {
-    console.log(req.body)
+   
   return NextResponse.json("recipe Edited");
 } catch (error) {
   return NextResponse.json(error);

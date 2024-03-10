@@ -170,7 +170,6 @@ function DeleteModal({
     try {
       const response = await deleteRecipe(id);
 
-      console.log({ data: id, response });
       setDeleteIsOpen(true);
     } catch (error) {
       console.error(error);

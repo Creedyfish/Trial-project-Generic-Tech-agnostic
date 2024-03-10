@@ -111,7 +111,6 @@ function Page({ params }: { params: { slug: string } }) {
     try {
       const response = await UpdateRecipe(data);
 
-      console.log({ data: data, response });
       setSuccessIsOpen(true);
     } catch (error) {
       console.error(error);
@@ -253,7 +252,6 @@ function Page({ params }: { params: { slug: string } }) {
                                   {...field}
                                   value={value?.fileName}
                                   onChange={(event) => {
-                                    console.log(event);
                                     const file = !!event.target.files?.length
                                       ? event.target.files[0].name
                                       : null;
