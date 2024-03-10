@@ -7,6 +7,28 @@ html, body{
  
 }
 
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: red;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+}
+
 input[type="checkbox"] {
   border-style: solid; /* Solid outline style */
   border-color: red;  /* Red color for the outline */
@@ -14,23 +36,42 @@ input[type="checkbox"] {
 }
 
 
-.ingredients ul,li {
+.ingredients ul, .ingredients li {
+  list-style-position: inside;
   list-style-type: disc;
   
+  @apply text-sm md:text-base pl-3 transition-all duration-300 ease-in-out
 }
 
 .ingredients span {
-  font-size: 24px;
+  @apply md:text-2xl text-base transition-all duration-300 ease-in-out
 }
+
+.ql-container.ql-snow,.ql-toolbar.ql-snow {
+
+  border: none!important;
+  /* border-width: 2px !important;
+  border-style: solid !important;
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity)) !important; */
+}
+
+
 
 input[type='file'] {
   color: transparent;
   visibility: hidden;
 }
-
+/* .ql-container.ql-snow {
+  @apply border-red-600 border-solid border-2
+} */
 .ql-container,.ql-editor{
-  @apply min-h-[27rem]
+  
+  @apply min-h-[13rem] max-h-[13rem] md:max-h-[27rem] md:min-h-[27rem] border-none border-red-600 border-0 rounded-3xl bg-bg-input dark:bg-dark-1 text-base font-lexend
+  
 }
+
+
 
 .ql-toolbar .ql-picker-label,
 .ql-toolbar .ql-bold,
