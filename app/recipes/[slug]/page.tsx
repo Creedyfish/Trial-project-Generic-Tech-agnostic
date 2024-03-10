@@ -38,9 +38,9 @@ function Page({ params }: { params: { slug: string } }) {
     fetchData();
   }, []);
 
-  const recipe = data.recipes.find(
-    (recipe) => recipe.name === params.slug.replace(/-/g, " ")
-  );
+  const deleteHandler = async () => {
+    setDeleteIsOpen(true);
+  };
 
   return (
     <>
@@ -49,6 +49,7 @@ function Page({ params }: { params: { slug: string } }) {
         setIsOpen={setDeleteIsOpen}
         setDeleteIsOpen={setFeedBackIsOpen}
         name={datapi?.name}
+        id={datapi?.id}
       />
       <DeleteFeedbackModal
         open={feedBackIsOpen}
@@ -92,7 +93,7 @@ function Page({ params }: { params: { slug: string } }) {
                       />
                     </Link>
                     <button
-                      onClick={() => setDeleteIsOpen(true)}
+                      onClick={() => deleteHandler}
                       className="flex justify-between rounded-full p-[0.625rem] items-center w-[2.375rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
                     >
                       <Image
@@ -148,7 +149,7 @@ function Page({ params }: { params: { slug: string } }) {
                       />
                     </Link>
                     <button
-                      onClick={() => setDeleteIsOpen(true)}
+                      onClick={() => deleteHandler()}
                       className="flex justify-between rounded-full p-[0.625rem] items-center w-[6.625rem] h-[2.375rem] border-[0.0625rem] border-red-delete text-red-delete"
                     >
                       <div>Delete</div>
