@@ -1,3 +1,10 @@
+/**
+ * This module exports a Header component that displays a navigation bar.
+ *
+ * @module Header
+ */
+
+// Importing necessary libraries and hooks
 "use client";
 import React from "react";
 import Image from "next/image";
@@ -5,7 +12,15 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
+/**
+ * Header component.
+ *
+ * @function
+ * @returns {JSX.Element} - Returns a navigation bar with a logo, a settings button, and a Settings component.
+ *
+ * The component has a state variable, isOpen, that determines whether the Settings component is displayed.
+ * When the settings button is clicked, isOpen is toggled.
+ */
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -28,7 +43,16 @@ function Header() {
     </nav>
   );
 }
-
+/**
+ * Settings component.
+ *
+ * @function
+ * @returns {void}
+ *
+ * The component uses the useRouter hook from Next.js to access the router object.
+ * It also has a state variable, mounted, that is initially set to false and is set to true when the component mounts.
+ * The component also uses the useTheme hook to access the theme state and the setTheme function.
+ */
 function Settings() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);

@@ -1,14 +1,32 @@
-// Importing necessary libraries and data
+/**
+ * This module exports a FoodCard component that displays a food item.
+ *
+ * @module FoodCard
+ */
+
+// Importing necessary libraries
 import React from "react";
 import Image from "next/image";
 
-// Defining the type of props that the FoodCard component will receive
+// Defining the Props interface
 interface Props {
   name: string; // Name of the food item
   image: string; // Path to the image of the food item
 }
 
-// FoodCard component
+/**
+ * FoodCard component.
+ *
+ * @function
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.name - The name of the food item.
+ * @param {string} props.image - The path to the image of the food item.
+ * @returns {JSX.Element} - Returns a div element with a specific style, containing an Image component and a div for the name.
+ *
+ * The component doesn't have any internal state or side effects.
+ * The Image source and alt text are derived from the image and name props respectively.
+ * The name prop is displayed in a div.
+ */
 function FoodCard({ name, image }: Props) {
   // The component doesn't have any internal state or side effects, so the body of the function is empty
 
