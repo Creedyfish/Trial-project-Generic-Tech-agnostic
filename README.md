@@ -76,17 +76,28 @@ Open http://localhost:3000 with your browser to see the result.
 | `email`    | `string` | **Required**. email to Find user from database |
 | `password` | `string` | **Required**. for User validation              |
 
+would login every credentials for user roles
+for admin role use:
+
+email: admin@example.com
+
+password: admin
+
 #### POST SignUp
 
 ```http
   POST /api/auth/signup
 ```
 
+Would only send a confirmation response upon call
+
 #### GET all Recipes
 
 ```http
   GET /api/
 ```
+
+Get all Recipe Items of all users.
 
 #### GET Recipe
 
